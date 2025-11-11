@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { PLATFORMS, transformPath } from "../src/config/platforms.js";
+import { transformPath } from "../src/config/transformPath.js";
+import { PLATFORMS } from "../src/config/PLATFORMS.1.js";
 
 describe("Platform Configuration", () => {
   describe("Platform Definitions", () => {

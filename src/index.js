@@ -1,5 +1,5 @@
 import { CONFIG, createConfig } from "./config/index.js";
-import { transformPath } from "./config/platforms.js";
+import { transformPath } from "./config/transformPath.js";
 
 /**
  * Monitors performance metrics during request processing
