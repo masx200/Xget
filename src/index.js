@@ -933,10 +933,35 @@ export default {
   }
 };
 function extractPlatformFromPath(pathname) {
-  for (const platformKey in PLATFORMS) {
-    const platformUrl = PLATFORMS[platformKey];
-    if (pathname.startsWith('/' + platformUrl)) {
-      return platformKey;
+  // Split the path and check if the first segment matches a platform key
+  const segments = pathname.split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return null;
+  }
+
+  // Check for exact match first
+  const firstSegment = segments[0];
+  if (PLATFORMS[firstSegment]) {
+    return firstSegment;
+  }
+
+  // Check for compound platform keys (like "cr-docker", "ip-openai", etc.)
+  // Check up to 3 segments deep for compound keys
+  for (let i = 2; i <= Math.min(3, segments.length); i++) {
+    const possibleKey = segments.slice(0, i).join('-');
+    if (PLATFORMS[possibleKey]) {
+      return possibleKey;
     }
   }
+
+  // Check for path-style platform keys (like "cr/docker" -> "cr-docker")
+  for (let i = 1; i <= Math.min(2, segments.length); i++) {
+    const possibleKey = segments.slice(0, i).join('/');
+    if (PLATFORMS[possibleKey]) {
+      return possibleKey;
+    }
+  }
+
+  return null;
 }
