@@ -32,11 +32,26 @@ export async function fetchMiddleWare(
 
   if (platformKey) {
     // Extract the platform prefix from the path
-    const prefix = `/${platformKey.replace(/-/g, "/")}/`;
-    const originalPath = pathname.replace(
-      new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`),
-      "/"
-    ) || "/";
+    let originalPath;
+    if (platformKey.includes(".")) {
+      // For platforms with dots (like GitHub domains), manually remove the platform segment
+      const platformPrefix = `/${platformKey}/`;
+      if (pathname.startsWith(platformPrefix)) {
+        originalPath = pathname.substring(platformPrefix.length);
+        if (!originalPath.startsWith("/")) {
+          originalPath = "/" + originalPath;
+        }
+      } else {
+        originalPath = pathname;
+      }
+    } else {
+      // For normal platform keys with hyphens, use regex replacement
+      const prefix = `/${platformKey.replace(/-/g, "/")}/`;
+      originalPath = pathname.replace(
+        new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`),
+        "/"
+      ) || "/";
+    }
 
     // Get the base URL for this platform
     const baseUrl = PLATFORMS[platformKey];

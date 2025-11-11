@@ -95,5 +95,12 @@ export function transformPath(path, platformKey) {
     }
   }
 
+  // Special handling for GitHub assets domains (release-assets.githubusercontent.com, raw.githubusercontent.com)
+  if (platformKey.includes(".")) {
+    // For platforms with dots (like GitHub domains), no additional transformation needed
+    // The path has already been cleaned by the caller
+    return transformedPath;
+  }
+
   return transformedPath;
 }
