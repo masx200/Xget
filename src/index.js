@@ -340,7 +340,7 @@ async function handleRequest(request, env, ctx) {
 
     // Redirect root path or invalid platforms to GitHub repository
     if (url.pathname === '/' || url.pathname === '') {
-      return new Response('not_found', { status: 404 });
+      return new Response('ok', { status: 200 });
     }
 
     const validation = validateRequest(request, url, config);
@@ -934,7 +934,7 @@ export default {
 function extractPlatformFromPath(pathname) {
   for (const platformKey in PLATFORMS) {
     const platformUrl = PLATFORMS[platformKey];
-    if (pathname.startsWith("/"+platformUrl)) {
+    if (pathname.startsWith('/' + platformUrl)) {
       return platformKey;
     }
   }
