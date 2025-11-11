@@ -928,8 +928,8 @@ export default {
         return reverseProxyWorker.fetch(request, env, ctx);
       }
     }
-    return new Response('Not found', { status: 404 });
-    // return handleRequest(request, env, ctx);
+    // return new Response('Not found', { status: 404 });
+    return handleRequest(request, env, ctx);
   }
 };
 function extractPlatformFromPath(pathname) {
