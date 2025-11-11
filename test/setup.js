@@ -2,13 +2,13 @@
  * Test setup and global configuration
  */
 
-import { afterAll, afterEach, beforeAll, beforeEach } from 'vitest';
+import { afterAll, afterEach, beforeAll, beforeEach } from "vitest";
 
 // Global test configuration
 const TEST_CONFIG = {
   timeout: 30000, // 30 seconds
   retries: 2,
-  bail: false
+  bail: false,
 };
 
 // Global test state
@@ -17,14 +17,14 @@ let testMetrics = {
   totalTests: 0,
   passedTests: 0,
   failedTests: 0,
-  skippedTests: 0
+  skippedTests: 0,
 };
 
 /**
  * Global setup - runs once before all tests
  */
 beforeAll(async () => {
-  console.log('🚀 Starting Xget test suite...');
+  console.log("🚀 Starting Xget test suite...");
   testStartTime = Date.now();
 
   // Initialize test environment
@@ -33,7 +33,7 @@ beforeAll(async () => {
   // Verify test dependencies
   await verifyTestDependencies();
 
-  console.log('✅ Test environment initialized');
+  console.log("✅ Test environment initialized");
 });
 
 /**
@@ -42,7 +42,7 @@ beforeAll(async () => {
 afterAll(async () => {
   const duration = Date.now() - testStartTime;
 
-  console.log('\n📊 Test Suite Summary:');
+  console.log("\n📊 Test Suite Summary:");
   console.log(`   Duration: ${duration}ms`);
   console.log(`   Total: ${testMetrics.totalTests}`);
   console.log(`   Passed: ${testMetrics.passedTests}`);
@@ -52,13 +52,13 @@ afterAll(async () => {
   // Cleanup test environment
   await cleanupTestEnvironment();
 
-  console.log('🏁 Test suite completed');
+  console.log("🏁 Test suite completed");
 });
 
 /**
  * Setup before each test
  */
-beforeEach(async context => {
+beforeEach(async (context) => {
   testMetrics.totalTests++;
 
   // Reset any global state
@@ -71,13 +71,13 @@ beforeEach(async context => {
 /**
  * Cleanup after each test
  */
-afterEach(async context => {
+afterEach(async (context) => {
   // Update test metrics based on result
-  if (context.meta?.result === 'pass') {
+  if (context.meta?.result === "pass") {
     testMetrics.passedTests++;
-  } else if (context.meta?.result === 'fail') {
+  } else if (context.meta?.result === "fail") {
     testMetrics.failedTests++;
-  } else if (context.meta?.result === 'skip') {
+  } else if (context.meta?.result === "skip") {
     testMetrics.skippedTests++;
   }
 
@@ -90,17 +90,17 @@ afterEach(async context => {
  */
 async function setupTestEnvironment() {
   // Verify Cloudflare Workers environment
-  if (typeof globalThis.fetch === 'undefined') {
-    throw new Error('fetch is not available in test environment');
+  if (typeof globalThis.fetch === "undefined") {
+    throw new Error("fetch is not available in test environment");
   }
 
   // Setup global test utilities
   globalThis.TEST_CONFIG = TEST_CONFIG;
 
   // Initialize performance monitoring
-  if (typeof performance === 'undefined') {
+  if (typeof performance === "undefined") {
     globalThis.performance = {
-      now: () => Date.now()
+      now: () => Date.now(),
     };
   }
 
@@ -112,22 +112,28 @@ async function setupTestEnvironment() {
  * Verify test dependencies
  */
 async function verifyTestDependencies() {
-  const requiredGlobals = ['Request', 'Response', 'Headers', 'URL', 'URLSearchParams'];
+  const requiredGlobals = [
+    "Request",
+    "Response",
+    "Headers",
+    "URL",
+    "URLSearchParams",
+  ];
 
   for (const global of requiredGlobals) {
-    if (typeof globalThis[global] === 'undefined') {
+    if (typeof globalThis[global] === "undefined") {
       throw new Error(`Required global ${global} is not available`);
     }
   }
 
   // Verify SELF is available for Cloudflare Workers testing
   try {
-    const { SELF } = await import('cloudflare:test');
+    const { SELF } = await import("cloudflare:test");
     if (!SELF) {
-      throw new Error('SELF is not available');
+      throw new Error("SELF is not available");
     }
   } catch (error) {
-    console.warn('Warning: Cloudflare Workers test environment not available');
+    console.warn("Warning: Cloudflare Workers test environment not available");
   }
 }
 
@@ -142,13 +148,13 @@ function setupConsoleOverrides() {
 
   // Override console methods for testing
   console.warn = (...args) => {
-    if (process.env.NODE_ENV !== 'test' || process.env.VERBOSE_TESTS) {
+    if (process.env.NODE_ENV !== "test" || process.env.VERBOSE_TESTS) {
       originalConsole.warn(...args);
     }
   };
 
   console.log = (...args) => {
-    if (process.env.NODE_ENV !== 'test' || process.env.VERBOSE_TESTS) {
+    if (process.env.NODE_ENV !== "test" || process.env.VERBOSE_TESTS) {
       originalConsole.log(...args);
     }
   };
@@ -179,21 +185,22 @@ async function setupTestCase(context) {
   // Setup test-specific performance monitoring
   globalThis.testPerformance = {
     marks: new Map(),
-    mark: name => {
+    mark: (name) => {
       globalThis.testPerformance.marks.set(name, performance.now());
     },
     measure: (name, startMark, endMark) => {
       const start = globalThis.testPerformance.marks.get(startMark) || 0;
-      const end = globalThis.testPerformance.marks.get(endMark) || performance.now();
+      const end = globalThis.testPerformance.marks.get(endMark) ||
+        performance.now();
       return end - start;
     },
     reset: () => {
       globalThis.testPerformance.marks.clear();
-    }
+    },
   };
 
   // Mark test start time
-  globalThis.testPerformance.mark('test-start');
+  globalThis.testPerformance.mark("test-start");
 }
 
 /**
@@ -201,11 +208,15 @@ async function setupTestCase(context) {
  */
 async function cleanupTestCase(context) {
   // Mark test end time
-  globalThis.testPerformance.mark('test-end');
+  globalThis.testPerformance.mark("test-end");
 
   // Log test performance if verbose
   if (process.env.VERBOSE_TESTS) {
-    const duration = globalThis.testPerformance.measure('test-duration', 'test-start', 'test-end');
+    const duration = globalThis.testPerformance.measure(
+      "test-duration",
+      "test-start",
+      "test-end",
+    );
     console.log(`Test "${context.meta?.name}" took ${duration.toFixed(2)}ms`);
   }
 
@@ -242,7 +253,7 @@ globalThis.testUtils = {
   /**
    * Create a test timeout
    */
-  timeout: ms =>
+  timeout: (ms) =>
     new Promise((_, reject) => {
       setTimeout(() => reject(new Error(`Test timed out after ${ms}ms`)), ms);
     }),
@@ -257,7 +268,7 @@ globalThis.testUtils = {
       if (await condition()) {
         return true;
       }
-      await new Promise(resolve => setTimeout(resolve, interval));
+      await new Promise((resolve) => setTimeout(resolve, interval));
     }
 
     throw new Error(`Condition not met within ${timeout}ms`);
@@ -277,13 +288,13 @@ globalThis.testUtils = {
 
         if (i < maxRetries - 1) {
           const delay = baseDelay * Math.pow(2, i);
-          await new Promise(resolve => setTimeout(resolve, delay));
+          await new Promise((resolve) => setTimeout(resolve, delay));
         }
       }
     }
 
     throw lastError;
-  }
+  },
 };
 
 // Export test configuration for use in other files

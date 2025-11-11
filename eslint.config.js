@@ -1,228 +1,228 @@
-import js from '@eslint/js';
+import js from "@eslint/js";
 
 export default [
   js.configs.recommended,
   {
-    files: ['src/**/*.js', 'test/**/*.js'],
+    files: ["src/**/*.js", "test/**/*.js"],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: 'module',
+      sourceType: "module",
       globals: {
         // Cloudflare Workers globals
-        addEventListener: 'readonly',
-        caches: 'readonly',
-        crypto: 'readonly',
-        fetch: 'readonly',
-        Request: 'readonly',
-        Response: 'readonly',
-        Headers: 'readonly',
-        URL: 'readonly',
-        URLSearchParams: 'readonly',
-        console: 'readonly',
+        addEventListener: "readonly",
+        caches: "readonly",
+        crypto: "readonly",
+        fetch: "readonly",
+        Request: "readonly",
+        Response: "readonly",
+        Headers: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
+        console: "readonly",
 
         // Vitest globals
-        describe: 'readonly',
-        it: 'readonly',
-        expect: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-        vi: 'readonly'
-      }
+        describe: "readonly",
+        it: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly",
+        vi: "readonly",
+      },
     },
     rules: {
       // Code quality rules
-      'no-unused-vars': [
-        'error',
+      "no-unused-vars": [
+        "error",
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_'
-        }
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
       ],
-      'no-console': [
-        'warn',
+      "no-console": [
+        "warn",
         {
-          allow: ['warn', 'error']
-        }
+          allow: ["warn", "error"],
+        },
       ],
-      'no-debugger': 'error',
-      'no-alert': 'error',
+      "no-debugger": "error",
+      "no-alert": "error",
 
       // Best practices
-      eqeqeq: ['error', 'always'],
-      curly: ['error', 'all'],
-      'no-eval': 'error',
-      'no-implied-eval': 'error',
-      'no-new-func': 'error',
-      'no-script-url': 'error',
-      'no-self-compare': 'error',
-      'no-sequences': 'error',
-      'no-throw-literal': 'error',
-      'no-unmodified-loop-condition': 'error',
-      'no-unused-expressions': 'error',
-      'no-useless-call': 'error',
-      'no-useless-concat': 'error',
-      'no-useless-return': 'error',
-      'prefer-promise-reject-errors': 'error',
-      radix: 'error',
-      yoda: 'error',
+      eqeqeq: ["error", "always"],
+      curly: ["error", "all"],
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+      "no-self-compare": "error",
+      "no-sequences": "error",
+      "no-throw-literal": "error",
+      "no-unmodified-loop-condition": "error",
+      "no-unused-expressions": "error",
+      "no-useless-call": "error",
+      "no-useless-concat": "error",
+      "no-useless-return": "error",
+      "prefer-promise-reject-errors": "error",
+      radix: "error",
+      yoda: "error",
 
       // Variables
-      'no-delete-var': 'error',
-      'no-label-var': 'error',
-      'no-restricted-globals': 'error',
-      'no-shadow': 'error',
-      'no-shadow-restricted-names': 'error',
-      'no-undef': 'error',
-      'no-undef-init': 'error',
-      'no-use-before-define': [
-        'error',
+      "no-delete-var": "error",
+      "no-label-var": "error",
+      "no-restricted-globals": "error",
+      "no-shadow": "error",
+      "no-shadow-restricted-names": "error",
+      "no-undef": "error",
+      "no-undef-init": "error",
+      "no-use-before-define": [
+        "error",
         {
           functions: false,
           classes: true,
-          variables: true
-        }
+          variables: true,
+        },
       ],
 
       // Stylistic issues
-      'array-bracket-spacing': ['error', 'never'],
-      'block-spacing': ['error', 'always'],
-      'brace-style': [
-        'error',
-        '1tbs',
+      "array-bracket-spacing": ["error", "never"],
+      "block-spacing": ["error", "always"],
+      "brace-style": [
+        "error",
+        "1tbs",
         {
-          allowSingleLine: true
-        }
+          allowSingleLine: true,
+        },
       ],
       camelcase: [
-        'error',
+        "error",
         {
-          properties: 'never'
-        }
+          properties: "never",
+        },
       ],
-      'comma-dangle': ['error', 'never'],
-      'comma-spacing': [
-        'error',
+      "comma-dangle": ["error", "never"],
+      "comma-spacing": [
+        "error",
         {
           before: false,
-          after: true
-        }
+          after: true,
+        },
       ],
-      'comma-style': ['error', 'last'],
-      'computed-property-spacing': ['error', 'never'],
-      'eol-last': ['error', 'always'],
-      'func-call-spacing': ['error', 'never'],
+      "comma-style": ["error", "last"],
+      "computed-property-spacing": ["error", "never"],
+      "eol-last": ["error", "always"],
+      "func-call-spacing": ["error", "never"],
       indent: [
-        'error',
+        "error",
         2,
         {
-          SwitchCase: 1
-        }
+          SwitchCase: 1,
+        },
       ],
-      'key-spacing': [
-        'error',
+      "key-spacing": [
+        "error",
         {
           beforeColon: false,
-          afterColon: true
-        }
+          afterColon: true,
+        },
       ],
-      'keyword-spacing': [
-        'error',
+      "keyword-spacing": [
+        "error",
         {
           before: true,
-          after: true
-        }
+          after: true,
+        },
       ],
-      'linebreak-style': ['error', 'unix'],
-      'no-multiple-empty-lines': [
-        'error',
+      "linebreak-style": ["error", "unix"],
+      "no-multiple-empty-lines": [
+        "error",
         {
           max: 2,
-          maxEOF: 1
-        }
+          maxEOF: 1,
+        },
       ],
-      'no-trailing-spaces': 'error',
-      'object-curly-spacing': ['error', 'always'],
+      "no-trailing-spaces": "error",
+      "object-curly-spacing": ["error", "always"],
       quotes: [
-        'error',
-        'single',
+        "error",
+        "single",
         {
-          avoidEscape: true
-        }
+          avoidEscape: true,
+        },
       ],
-      semi: ['error', 'always'],
-      'semi-spacing': [
-        'error',
+      semi: ["error", "always"],
+      "semi-spacing": [
+        "error",
         {
           before: false,
-          after: true
-        }
+          after: true,
+        },
       ],
-      'space-before-blocks': ['error', 'always'],
-      'space-before-function-paren': [
-        'error',
+      "space-before-blocks": ["error", "always"],
+      "space-before-function-paren": [
+        "error",
         {
-          anonymous: 'always',
-          named: 'never',
-          asyncArrow: 'always'
-        }
+          anonymous: "always",
+          named: "never",
+          asyncArrow: "always",
+        },
       ],
-      'space-in-parens': ['error', 'never'],
-      'space-infix-ops': 'error',
-      'space-unary-ops': [
-        'error',
+      "space-in-parens": ["error", "never"],
+      "space-infix-ops": "error",
+      "space-unary-ops": [
+        "error",
         {
           words: true,
-          nonwords: false
-        }
+          nonwords: false,
+        },
       ],
 
       // ES6+ rules
-      'arrow-spacing': [
-        'error',
+      "arrow-spacing": [
+        "error",
         {
           before: true,
-          after: true
-        }
+          after: true,
+        },
       ],
-      'constructor-super': 'error',
-      'no-class-assign': 'error',
-      'no-const-assign': 'error',
-      'no-dupe-class-members': 'error',
-      'no-duplicate-imports': 'error',
-      'no-new-symbol': 'error',
-      'no-this-before-super': 'error',
-      'no-useless-computed-key': 'error',
-      'no-useless-constructor': 'error',
-      'no-useless-rename': 'error',
-      'no-var': 'error',
-      'object-shorthand': ['error', 'always'],
-      'prefer-arrow-callback': 'error',
-      'prefer-const': 'error',
-      'prefer-destructuring': [
-        'error',
+      "constructor-super": "error",
+      "no-class-assign": "error",
+      "no-const-assign": "error",
+      "no-dupe-class-members": "error",
+      "no-duplicate-imports": "error",
+      "no-new-symbol": "error",
+      "no-this-before-super": "error",
+      "no-useless-computed-key": "error",
+      "no-useless-constructor": "error",
+      "no-useless-rename": "error",
+      "no-var": "error",
+      "object-shorthand": ["error", "always"],
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "prefer-destructuring": [
+        "error",
         {
           array: true,
-          object: true
+          object: true,
         },
         {
-          enforceForRenamedProperties: false
-        }
+          enforceForRenamedProperties: false,
+        },
       ],
-      'prefer-rest-params': 'error',
-      'prefer-spread': 'error',
-      'prefer-template': 'error',
-      'rest-spread-spacing': ['error', 'never'],
-      'template-curly-spacing': ['error', 'never']
-    }
+      "prefer-rest-params": "error",
+      "prefer-spread": "error",
+      "prefer-template": "error",
+      "rest-spread-spacing": ["error", "never"],
+      "template-curly-spacing": ["error", "never"],
+    },
   },
   {
-    files: ['test/**/*.js'],
+    files: ["test/**/*.js"],
     rules: {
       // Relax some rules for test files
-      'no-console': 'off',
-      'no-unused-expressions': 'off'
-    }
-  }
+      "no-console": "off",
+      "no-unused-expressions": "off",
+    },
+  },
 ];

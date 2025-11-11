@@ -6,26 +6,26 @@ on:
       - main
       - develop
     tags:
-      - 'v*'
+      - "v*"
     paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'test/**'
-      - 'scripts/**'
-      - '.gitignore'
-      - '.editorconfig'
-      - 'LICENSE'
+      - "**.md"
+      - "docs/**"
+      - "test/**"
+      - "scripts/**"
+      - ".gitignore"
+      - ".editorconfig"
+      - "LICENSE"
   pull_request:
     branches:
       - main
     paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'test/**'
-      - 'scripts/**'
-      - '.gitignore'
-      - '.editorconfig'
-      - 'LICENSE'
+      - "**.md"
+      - "docs/**"
+      - "test/**"
+      - "scripts/**"
+      - ".gitignore"
+      - ".editorconfig"
+      - "LICENSE"
   workflow_dispatch:
 
 env:
@@ -119,11 +119,11 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ steps.scan-image.outputs.image-ref }}
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          format: "sarif"
+          output: "trivy-results.sarif"
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: "trivy-results.sarif"

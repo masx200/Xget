@@ -1,6 +1,6 @@
 # Xget
 
-***[汉语](README.md)***
+_**[汉语](README.md)**_
 
 <a href="https://trendshift.io/repositories/14768" target="_blank"><img src="https://trendshift.io/api/badge/repositories/14768" alt="xixu-me%2FXget | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
@@ -46,48 +46,70 @@
 [![AI Inference Providers](https://img.shields.io/badge/AI%20Inference%20Providers-412991?logo=openai&logoColor=white)](#ai-inference-providers)
 [![Container Registries](https://img.shields.io/badge/Container%20Registries-%23007EC6.svg?logo=docker&logoColor=white)](#container-registries)
 
-Ultra-high-performance, secure, all-in-one acceleration engine for developer resources that significantly outperforms traditional solutions, delivering unified, efficient acceleration across code repositories, package registries, AI inference APIs, container images, models, datasets, and more.
+Ultra-high-performance, secure, all-in-one acceleration engine for developer
+resources that significantly outperforms traditional solutions, delivering
+unified, efficient acceleration across code repositories, package registries, AI
+inference APIs, container images, models, datasets, and more.
 
-In-depth technical analysis article published: ***[Deep Dive into Xget: A High-Performance, Multi-Protocol, and Secure Acceleration Engine for Developer Resources](https://blog.xi-xu.me/2025/10/07/deep-dive-into-xget-technology-en.html)***.
+In-depth technical analysis article published:
+_**[Deep Dive into Xget: A High-Performance, Multi-Protocol, and Secure Acceleration Engine for Developer Resources](https://blog.xi-xu.me/2025/10/07/deep-dive-into-xget-technology-en.html)**_.
 
 ## 🎯 Quick Start
 
-**Pre-deployed Instance (no reliability guarantee): `xget.xi-xu.me`** - Ready to use out of the box, no deployment required!
+**Pre-deployed Instance (no reliability guarantee): `xget.xi-xu.me`** - Ready to
+use out of the box, no deployment required!
 
-**URL Converter:** [**`xuc.xi-xu.me`**](https://xuc.xi-xu.me) - Convert any supported platform URL to Xget's acceleration format with one click!
+**URL Converter:** [**`xuc.xi-xu.me`**](https://xuc.xi-xu.me) - Convert any
+supported platform URL to Xget's acceleration format with one click!
 
-> **⚡ Experience Lightning-Fast Downloads Now**: No registration, no configuration required, just start using to experience blazing-fast download speeds!
+> **⚡ Experience Lightning-Fast Downloads Now**: No registration, no
+> configuration required, just start using to experience blazing-fast download
+> speeds!
 
 ## 🌟 Core Advantages - Why Choose Xget?
 
 ### ⚡ Extreme Performance - Breaking Through Traditional Accelerator Bottlenecks
 
-- **⚡ Millisecond Response**: Cloudflare's global 330+ edge nodes, average response time < 50ms
-- **🌐 HTTP/3 Ultra-Fast Protocol**: Latest HTTP/3 protocol enabled, 40% reduction in connection latency, 30% increase in transmission speed
-- **📦 Intelligent Multi-Compression**: Triple compression algorithms (gzip, deflate, brotli), 60% improvement in transmission efficiency
-- **🔗 Zero-Latency Pre-Connection**: Connection warm-up and keep-alive, eliminating handshake overhead for second-level responses
-- **⚡ Parallel Chunked Download**: Full support for HTTP Range requests, multiplied multi-threaded download speeds
-- **🎯 Smart Routing Optimization**: Automatically selects optimal transmission paths, avoiding network congestion nodes
+- **⚡ Millisecond Response**: Cloudflare's global 330+ edge nodes, average
+  response time < 50ms
+- **🌐 HTTP/3 Ultra-Fast Protocol**: Latest HTTP/3 protocol enabled, 40%
+  reduction in connection latency, 30% increase in transmission speed
+- **📦 Intelligent Multi-Compression**: Triple compression algorithms (gzip,
+  deflate, brotli), 60% improvement in transmission efficiency
+- **🔗 Zero-Latency Pre-Connection**: Connection warm-up and keep-alive,
+  eliminating handshake overhead for second-level responses
+- **⚡ Parallel Chunked Download**: Full support for HTTP Range requests,
+  multiplied multi-threaded download speeds
+- **🎯 Smart Routing Optimization**: Automatically selects optimal transmission
+  paths, avoiding network congestion nodes
 
 ### 🌐 Deep Multi-Platform Integration
 
-- **All-in-One Multi-Platform Support**: Unified support for code repositories, package managers, AI inference providers, container registries, model and dataset hosting platforms
-- **Intelligent Recognition and Conversion**: Automatically recognizes platform prefixes and converts to correct URL structures for target platforms
-- **Consistent Acceleration Experience**: Enjoy unified and stable ultra-fast download experience regardless of file type or source
+- **All-in-One Multi-Platform Support**: Unified support for code repositories,
+  package managers, AI inference providers, container registries, model and
+  dataset hosting platforms
+- **Intelligent Recognition and Conversion**: Automatically recognizes platform
+  prefixes and converts to correct URL structures for target platforms
+- **Consistent Acceleration Experience**: Enjoy unified and stable ultra-fast
+  download experience regardless of file type or source
 
 ### 🔒 Enterprise-Grade Security
 
 - **Multi-Layer Security Headers**:
-  - `Strict-Transport-Security`: Enforces HTTPS transmission, prevents man-in-the-middle attacks
+  - `Strict-Transport-Security`: Enforces HTTPS transmission, prevents
+    man-in-the-middle attacks
   - `X-Frame-Options: DENY`: Prevents clickjacking attacks
   - `X-XSS-Protection`: Built-in XSS protection mechanism
   - `Content-Security-Policy`: Strict content security policy
   - `Referrer-Policy`: Controls referrer information leakage
 - **Request Validation Mechanism**:
-  - HTTP method whitelist: Regular requests limited to GET/HEAD, Git operations dynamically allow POST
-  - Path length limit: Prevents excessively long URL attacks (max 2048 characters)
+  - HTTP method whitelist: Regular requests limited to GET/HEAD, Git operations
+    dynamically allow POST
+  - Path length limit: Prevents excessively long URL attacks (max 2048
+    characters)
   - Input sanitization: Prevents path traversal and injection attacks
-- **Timeout Protection**: 30-second request timeout, prevents resource exhaustion and malicious requests
+- **Timeout Protection**: 30-second request timeout, prevents resource
+  exhaustion and malicious requests
 
 ### 🚀 Modern Architecture and Reliability
 
@@ -96,22 +118,27 @@ In-depth technical analysis article published: ***[Deep Dive into Xget: A High-P
   - Automatic error recovery, improved download success rate
   - Timeout detection and interruption handling
 - **Efficient Caching Strategy**:
-  - 1800 seconds (30 minutes) default cache duration, significantly reduces origin server pressure
+  - 1800 seconds (30 minutes) default cache duration, significantly reduces
+    origin server pressure
   - Git operations skip caching to ensure real-time data
   - Edge caching based on Cloudflare Cache API
 - **Performance Monitoring System**:
-  - Built-in `PerformanceMonitor` class for real-time tracking of request stage durations
-  - Detailed performance data provided via `X-Performance-Metrics` response header
+  - Built-in `PerformanceMonitor` class for real-time tracking of request stage
+    durations
+  - Detailed performance data provided via `X-Performance-Metrics` response
+    header
   - Cache hit rate statistics and optimization recommendations
 
 ### 🎯 Full Git Protocol Compatibility
 
 - **Smart Protocol Detection**:
-  - Automatically recognizes Git-specific endpoints (`/info/refs`, `/git-upload-pack`, `/git-receive-pack`)
+  - Automatically recognizes Git-specific endpoints (`/info/refs`,
+    `/git-upload-pack`, `/git-receive-pack`)
   - Detects Git client User-Agent patterns
   - Supports query parameters like `service=git-upload-pack`
 - **Complete Operation Support**:
-  - `git clone`: Full repository cloning, supports shallow clones and branch specification
+  - `git clone`: Full repository cloning, supports shallow clones and branch
+    specification
   - `git push`: Code push and branch management
   - `git pull/fetch`: Incremental updates and remote synchronization
   - `git submodule`: Recursive submodule cloning
@@ -122,57 +149,61 @@ In-depth technical analysis article published: ***[Deep Dive into Xget: A High-P
 
 ### 📱 Ecosystem Integration
 
-- **Dedicated Browser Extension**: [Xget Now](https://github.com/xixu-me/Xget-Now) provides seamless experience
+- **Dedicated Browser Extension**:
+  [Xget Now](https://github.com/masx200/Xget-Now) provides seamless experience
   - Automatic URL redirection, no manual URL modification needed
   - Support for custom Xget instance domains
   - Multi-platform preference settings and blacklist/whitelist management
   - Local processing ensures privacy and security
-- **Download Tool Compatibility**: Perfect support for wget, cURL, aria2, IDM, and other mainstream download tools
-- **CI/CD Integration**: Can be used directly in GitHub Actions, GitLab CI, and other environments
+- **Download Tool Compatibility**: Perfect support for wget, cURL, aria2, IDM,
+  and other mainstream download tools
+- **CI/CD Integration**: Can be used directly in GitHub Actions, GitLab CI, and
+  other environments
 
 ## 📖 URL Conversion Rules
 
-Using the pre-deployed instance **`xget.xi-xu.me`** or your own deployed instance, simply replace the domain and add the platform prefix:
+Using the pre-deployed instance **`xget.xi-xu.me`** or your own deployed
+instance, simply replace the domain and add the platform prefix:
 
 ### Conversion Format
 
-| Platform | Platform Prefix | Original URL Format | Accelerated URL Format |
-|----------|----------------|---------------------|------------------------|
-| GitHub | `gh` | `https://github.com/...` | `https://xget.xi-xu.me/gh/...` |
-| GitHub Gist | `gist` | `https://gist.github.com/...` | `https://xget.xi-xu.me/gist/...` |
-| GitLab | `gl` | `https://gitlab.com/...` | `https://xget.xi-xu.me/gl/...` |
-| Gitea | `gitea` | `https://gitea.com/...` | `https://xget.xi-xu.me/gitea/...` |
-| Codeberg | `codeberg` | `https://codeberg.org/...` | `https://xget.xi-xu.me/codeberg/...` |
-| SourceForge | `sf` | `https://sourceforge.net/...` | `https://xget.xi-xu.me/sf/...` |
-| AOSP | `aosp` | `https://android.googlesource.com/...` | `https://xget.xi-xu.me/aosp/...` |
-| Hugging Face | `hf` | `https://huggingface.co/...` | `https://xget.xi-xu.me/hf/...` |
-| Civitai | `civitai` | `https://civitai.com/...` | `https://xget.xi-xu.me/civitai/...` |
-| npm | `npm` | `https://registry.npmjs.org/...` | `https://xget.xi-xu.me/npm/...` |
-| PyPI | `pypi` | `https://pypi.org/...` | `https://xget.xi-xu.me/pypi/...` |
-| conda | `conda` | `https://repo.anaconda.com/...` and `https://conda.anaconda.org/...` | `https://xget.xi-xu.me/conda/...` and `https://xget.xi-xu.me/conda/community/...` |
-| Maven | `maven` | `https://repo1.maven.org/...` | `https://xget.xi-xu.me/maven/...` |
-| Apache | `apache` | `https://downloads.apache.org/...` | `https://xget.xi-xu.me/apache/...` |
-| Gradle | `gradle` | `https://plugins.gradle.org/...` | `https://xget.xi-xu.me/gradle/...` |
-| Homebrew | `homebrew` | `https://github.com/Homebrew/...` | `https://xget.xi-xu.me/homebrew/...` |
-| RubyGems | `rubygems` | `https://rubygems.org/...` | `https://xget.xi-xu.me/rubygems/...` |
-| CRAN | `cran` | `https://cran.r-project.org/...` | `https://xget.xi-xu.me/cran/...` |
-| CPAN | `cpan` | `https://www.cpan.org/...` | `https://xget.xi-xu.me/cpan/...` |
-| CTAN | `ctan` | `https://tug.ctan.org/...` | `https://xget.xi-xu.me/ctan/...` |
-| Go Modules | `golang` | `https://proxy.golang.org/...` | `https://xget.xi-xu.me/golang/...` |
-| NuGet | `nuget` | `https://api.nuget.org/...` | `https://xget.xi-xu.me/nuget/...` |
-| Rust Crates | `crates` | `https://crates.io/...` | `https://xget.xi-xu.me/crates/...` |
-| Packagist | `packagist` | `https://repo.packagist.org/...` | `https://xget.xi-xu.me/packagist/...` |
-| Debian | `debian` | `https://deb.debian.org/...` | `https://xget.xi-xu.me/debian/...` |
-| Ubuntu | `ubuntu` | `https://archive.ubuntu.com/...` | `https://xget.xi-xu.me/ubuntu/...` |
-| Fedora | `fedora` | `https://dl.fedoraproject.org/...` | `https://xget.xi-xu.me/fedora/...` |
-| Rocky Linux | `rocky` | `https://download.rockylinux.org/...` | `https://xget.xi-xu.me/rocky/...` |
-| openSUSE | `opensuse` | `https://download.opensuse.org/...` | `https://xget.xi-xu.me/opensuse/...` |
-| Arch Linux | `arch` | `https://geo.mirror.pkgbuild.com/...` | `https://xget.xi-xu.me/arch/...` |
-| arXiv | `arxiv` | `https://arxiv.org/...` | `https://xget.xi-xu.me/arxiv/...` |
-| F-Droid | `fdroid` | `https://f-droid.org/...` | `https://xget.xi-xu.me/fdroid/...` |
-| Jenkins Plugins | `jenkins` | `https://updates.jenkins.io/...` | `https://xget.xi-xu.me/jenkins/...` |
-| AI Inference Providers | `ip` | See [AI Inference Providers](#ai-inference-providers) | See [AI Inference Providers](#ai-inference-providers) |
-| Container Registries | `cr` | See [Container Registries](#container-registries) | See [Container Registries](#container-registries) |
+| Platform               | Platform Prefix | Original URL Format                                                  | Accelerated URL Format                                                            |
+| ---------------------- | --------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| GitHub                 | `gh`            | `https://github.com/...`                                             | `https://xget.xi-xu.me/gh/...`                                                    |
+| GitHub Gist            | `gist`          | `https://gist.github.com/...`                                        | `https://xget.xi-xu.me/gist/...`                                                  |
+| GitLab                 | `gl`            | `https://gitlab.com/...`                                             | `https://xget.xi-xu.me/gl/...`                                                    |
+| Gitea                  | `gitea`         | `https://gitea.com/...`                                              | `https://xget.xi-xu.me/gitea/...`                                                 |
+| Codeberg               | `codeberg`      | `https://codeberg.org/...`                                           | `https://xget.xi-xu.me/codeberg/...`                                              |
+| SourceForge            | `sf`            | `https://sourceforge.net/...`                                        | `https://xget.xi-xu.me/sf/...`                                                    |
+| AOSP                   | `aosp`          | `https://android.googlesource.com/...`                               | `https://xget.xi-xu.me/aosp/...`                                                  |
+| Hugging Face           | `hf`            | `https://huggingface.co/...`                                         | `https://xget.xi-xu.me/hf/...`                                                    |
+| Civitai                | `civitai`       | `https://civitai.com/...`                                            | `https://xget.xi-xu.me/civitai/...`                                               |
+| npm                    | `npm`           | `https://registry.npmjs.org/...`                                     | `https://xget.xi-xu.me/npm/...`                                                   |
+| PyPI                   | `pypi`          | `https://pypi.org/...`                                               | `https://xget.xi-xu.me/pypi/...`                                                  |
+| conda                  | `conda`         | `https://repo.anaconda.com/...` and `https://conda.anaconda.org/...` | `https://xget.xi-xu.me/conda/...` and `https://xget.xi-xu.me/conda/community/...` |
+| Maven                  | `maven`         | `https://repo1.maven.org/...`                                        | `https://xget.xi-xu.me/maven/...`                                                 |
+| Apache                 | `apache`        | `https://downloads.apache.org/...`                                   | `https://xget.xi-xu.me/apache/...`                                                |
+| Gradle                 | `gradle`        | `https://plugins.gradle.org/...`                                     | `https://xget.xi-xu.me/gradle/...`                                                |
+| Homebrew               | `homebrew`      | `https://github.com/Homebrew/...`                                    | `https://xget.xi-xu.me/homebrew/...`                                              |
+| RubyGems               | `rubygems`      | `https://rubygems.org/...`                                           | `https://xget.xi-xu.me/rubygems/...`                                              |
+| CRAN                   | `cran`          | `https://cran.r-project.org/...`                                     | `https://xget.xi-xu.me/cran/...`                                                  |
+| CPAN                   | `cpan`          | `https://www.cpan.org/...`                                           | `https://xget.xi-xu.me/cpan/...`                                                  |
+| CTAN                   | `ctan`          | `https://tug.ctan.org/...`                                           | `https://xget.xi-xu.me/ctan/...`                                                  |
+| Go Modules             | `golang`        | `https://proxy.golang.org/...`                                       | `https://xget.xi-xu.me/golang/...`                                                |
+| NuGet                  | `nuget`         | `https://api.nuget.org/...`                                          | `https://xget.xi-xu.me/nuget/...`                                                 |
+| Rust Crates            | `crates`        | `https://crates.io/...`                                              | `https://xget.xi-xu.me/crates/...`                                                |
+| Packagist              | `packagist`     | `https://repo.packagist.org/...`                                     | `https://xget.xi-xu.me/packagist/...`                                             |
+| Debian                 | `debian`        | `https://deb.debian.org/...`                                         | `https://xget.xi-xu.me/debian/...`                                                |
+| Ubuntu                 | `ubuntu`        | `https://archive.ubuntu.com/...`                                     | `https://xget.xi-xu.me/ubuntu/...`                                                |
+| Fedora                 | `fedora`        | `https://dl.fedoraproject.org/...`                                   | `https://xget.xi-xu.me/fedora/...`                                                |
+| Rocky Linux            | `rocky`         | `https://download.rockylinux.org/...`                                | `https://xget.xi-xu.me/rocky/...`                                                 |
+| openSUSE               | `opensuse`      | `https://download.opensuse.org/...`                                  | `https://xget.xi-xu.me/opensuse/...`                                              |
+| Arch Linux             | `arch`          | `https://geo.mirror.pkgbuild.com/...`                                | `https://xget.xi-xu.me/arch/...`                                                  |
+| arXiv                  | `arxiv`         | `https://arxiv.org/...`                                              | `https://xget.xi-xu.me/arxiv/...`                                                 |
+| F-Droid                | `fdroid`        | `https://f-droid.org/...`                                            | `https://xget.xi-xu.me/fdroid/...`                                                |
+| Jenkins Plugins        | `jenkins`       | `https://updates.jenkins.io/...`                                     | `https://xget.xi-xu.me/jenkins/...`                                               |
+| AI Inference Providers | `ip`            | See [AI Inference Providers](#ai-inference-providers)                | See [AI Inference Providers](#ai-inference-providers)                             |
+| Container Registries   | `cr`            | See [Container Registries](#container-registries)                    | See [Container Registries](#container-registries)                                 |
 
 ### Platform Conversion Examples
 
@@ -638,38 +669,39 @@ https://xget.xi-xu.me/jenkins/download/plugins/maven-plugin/3.27/maven-plugin.hp
 
 #### AI Inference Providers
 
-Xget supports API acceleration for many mainstream AI inference providers, using the `ip/[AI Provider Prefix]` format:
+Xget supports API acceleration for many mainstream AI inference providers, using
+the `ip/[AI Provider Prefix]` format:
 
-| AI Inference Provider | Provider Prefix | Original URL Format | Accelerated URL Format |
-|----------------------|-----------------|---------------------|------------------------|
-| OpenAI | `openai` | `https://api.openai.com/...` | `https://xget.xi-xu.me/ip/openai/...` |
-| Anthropic | `anthropic` | `https://api.anthropic.com/...` | `https://xget.xi-xu.me/ip/anthropic/...` |
-| Gemini | `gemini` | `https://generativelanguage.googleapis.com/...` | `https://xget.xi-xu.me/ip/gemini/...` |
-| Vertex AI | `vertexai` | `https://aiplatform.googleapis.com/...` | `https://xget.xi-xu.me/ip/vertexai/...` |
-| Cohere | `cohere` | `https://api.cohere.ai/...` | `https://xget.xi-xu.me/ip/cohere/...` |
-| Mistral AI | `mistralai` | `https://api.mistral.ai/...` | `https://xget.xi-xu.me/ip/mistralai/...` |
-| xAI | `xai` | `https://api.x.ai/...` | `https://xget.xi-xu.me/ip/xai/...` |
-| GitHub Models | `githubmodels` | `https://models.github.ai/...` | `https://xget.xi-xu.me/ip/githubmodels/...` |
-| NVIDIA API | `nvidiaapi` | `https://integrate.api.nvidia.com/...` | `https://xget.xi-xu.me/ip/nvidiaapi/...` |
-| Perplexity | `perplexity` | `https://api.perplexity.ai/...` | `https://xget.xi-xu.me/ip/perplexity/...` |
-| Groq | `groq` | `https://api.groq.com/...` | `https://xget.xi-xu.me/ip/groq/...` |
-| Cerebras | `cerebras` | `https://api.cerebras.ai/...` | `https://xget.xi-xu.me/ip/cerebras/...` |
-| SambaNova | `sambanova` | `https://api.sambanova.ai/...` | `https://xget.xi-xu.me/ip/sambanova/...` |
-| Siray | `siray` | `https://api.siray.ai/...` | `https://xget.xi-xu.me/ip/siray/...` |
-| HF Inference | `huggingface` | `https://router.huggingface.co/...` | `https://xget.xi-xu.me/ip/huggingface/...` |
-| Together | `together` | `https://api.together.xyz/...` | `https://xget.xi-xu.me/ip/together/...` |
-| Replicate | `replicate` | `https://api.replicate.com/...` | `https://xget.xi-xu.me/ip/replicate/...` |
-| Fireworks | `fireworks` | `https://api.fireworks.ai/...` | `https://xget.xi-xu.me/ip/fireworks/...` |
-| Nebius | `nebius` | `https://api.studio.nebius.ai/...` | `https://xget.xi-xu.me/ip/nebius/...` |
-| Jina | `jina` | `https://api.jina.ai/...` | `https://xget.xi-xu.me/ip/jina/...` |
-| Voyage AI | `voyageai` | `https://api.voyageai.com/...` | `https://xget.xi-xu.me/ip/voyageai/...` |
-| Fal AI | `falai` | `https://fal.run/...` | `https://xget.xi-xu.me/ip/falai/...` |
-| Novita | `novita` | `https://api.novita.ai/...` | `https://xget.xi-xu.me/ip/novita/...` |
-| Burncloud | `burncloud` | `https://ai.burncloud.com/...` | `https://xget.xi-xu.me/ip/burncloud/...` |
-| OpenRouter | `openrouter` | `https://openrouter.ai/...` | `https://xget.xi-xu.me/ip/openrouter/...` |
-| Poe | `poe` | `https://api.poe.com/...` | `https://xget.xi-xu.me/ip/poe/...` |
-| Featherless AI | `featherlessai` | `https://api.featherless.ai/...` | `https://xget.xi-xu.me/ip/featherlessai/...` |
-| Hyperbolic | `hyperbolic` | `https://api.hyperbolic.xyz/...` | `https://xget.xi-xu.me/ip/hyperbolic/...` |
+| AI Inference Provider | Provider Prefix | Original URL Format                             | Accelerated URL Format                       |
+| --------------------- | --------------- | ----------------------------------------------- | -------------------------------------------- |
+| OpenAI                | `openai`        | `https://api.openai.com/...`                    | `https://xget.xi-xu.me/ip/openai/...`        |
+| Anthropic             | `anthropic`     | `https://api.anthropic.com/...`                 | `https://xget.xi-xu.me/ip/anthropic/...`     |
+| Gemini                | `gemini`        | `https://generativelanguage.googleapis.com/...` | `https://xget.xi-xu.me/ip/gemini/...`        |
+| Vertex AI             | `vertexai`      | `https://aiplatform.googleapis.com/...`         | `https://xget.xi-xu.me/ip/vertexai/...`      |
+| Cohere                | `cohere`        | `https://api.cohere.ai/...`                     | `https://xget.xi-xu.me/ip/cohere/...`        |
+| Mistral AI            | `mistralai`     | `https://api.mistral.ai/...`                    | `https://xget.xi-xu.me/ip/mistralai/...`     |
+| xAI                   | `xai`           | `https://api.x.ai/...`                          | `https://xget.xi-xu.me/ip/xai/...`           |
+| GitHub Models         | `githubmodels`  | `https://models.github.ai/...`                  | `https://xget.xi-xu.me/ip/githubmodels/...`  |
+| NVIDIA API            | `nvidiaapi`     | `https://integrate.api.nvidia.com/...`          | `https://xget.xi-xu.me/ip/nvidiaapi/...`     |
+| Perplexity            | `perplexity`    | `https://api.perplexity.ai/...`                 | `https://xget.xi-xu.me/ip/perplexity/...`    |
+| Groq                  | `groq`          | `https://api.groq.com/...`                      | `https://xget.xi-xu.me/ip/groq/...`          |
+| Cerebras              | `cerebras`      | `https://api.cerebras.ai/...`                   | `https://xget.xi-xu.me/ip/cerebras/...`      |
+| SambaNova             | `sambanova`     | `https://api.sambanova.ai/...`                  | `https://xget.xi-xu.me/ip/sambanova/...`     |
+| Siray                 | `siray`         | `https://api.siray.ai/...`                      | `https://xget.xi-xu.me/ip/siray/...`         |
+| HF Inference          | `huggingface`   | `https://router.huggingface.co/...`             | `https://xget.xi-xu.me/ip/huggingface/...`   |
+| Together              | `together`      | `https://api.together.xyz/...`                  | `https://xget.xi-xu.me/ip/together/...`      |
+| Replicate             | `replicate`     | `https://api.replicate.com/...`                 | `https://xget.xi-xu.me/ip/replicate/...`     |
+| Fireworks             | `fireworks`     | `https://api.fireworks.ai/...`                  | `https://xget.xi-xu.me/ip/fireworks/...`     |
+| Nebius                | `nebius`        | `https://api.studio.nebius.ai/...`              | `https://xget.xi-xu.me/ip/nebius/...`        |
+| Jina                  | `jina`          | `https://api.jina.ai/...`                       | `https://xget.xi-xu.me/ip/jina/...`          |
+| Voyage AI             | `voyageai`      | `https://api.voyageai.com/...`                  | `https://xget.xi-xu.me/ip/voyageai/...`      |
+| Fal AI                | `falai`         | `https://fal.run/...`                           | `https://xget.xi-xu.me/ip/falai/...`         |
+| Novita                | `novita`        | `https://api.novita.ai/...`                     | `https://xget.xi-xu.me/ip/novita/...`        |
+| Burncloud             | `burncloud`     | `https://ai.burncloud.com/...`                  | `https://xget.xi-xu.me/ip/burncloud/...`     |
+| OpenRouter            | `openrouter`    | `https://openrouter.ai/...`                     | `https://xget.xi-xu.me/ip/openrouter/...`    |
+| Poe                   | `poe`           | `https://api.poe.com/...`                       | `https://xget.xi-xu.me/ip/poe/...`           |
+| Featherless AI        | `featherlessai` | `https://api.featherless.ai/...`                | `https://xget.xi-xu.me/ip/featherlessai/...` |
+| Hyperbolic            | `hyperbolic`    | `https://api.hyperbolic.xyz/...`                | `https://xget.xi-xu.me/ip/hyperbolic/...`    |
 
 ```url
 # OpenAI API original URL
@@ -697,31 +729,33 @@ https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3
 https://xget.xi-xu.me/ip/huggingface/hf-inference/models/openai/whisper-large-v3
 ```
 
-For use cases, see [AI Inference API Acceleration](#ai-inference-api-acceleration).
+For use cases, see
+[AI Inference API Acceleration](#ai-inference-api-acceleration).
 
 #### Container Registries
 
-Xget supports multiple container registries, using the `cr/[Registry Prefix]` format:
+Xget supports multiple container registries, using the `cr/[Registry Prefix]`
+format:
 
-| Container Registry | Registry Prefix | Original URL Format | Accelerated URL Format |
-|-------------------|----------------|---------------------|------------------------|
-| Docker Hub | `docker` | `https://registry-1.docker.io/...` | `https://xget.xi-xu.me/cr/docker/...` |
-| Quay.io | `quay` | `https://quay.io/...` | `https://xget.xi-xu.me/cr/quay/...` |
-| Google Container Registry | `gcr` | `https://gcr.io/...` | `https://xget.xi-xu.me/cr/gcr/...` |
-| Microsoft Container Registry | `mcr` | `https://mcr.microsoft.com/...` | `https://xget.xi-xu.me/cr/mcr/...` |
-| Amazon Public ECR | `ecr` | `https://public.ecr.aws/...` | `https://xget.xi-xu.me/cr/ecr/...` |
-| GitHub Container Registry | `ghcr` | `https://ghcr.io/...` | `https://xget.xi-xu.me/cr/ghcr/...` |
-| GitLab Container Registry | `gitlab` | `https://registry.gitlab.com/...` | `https://xget.xi-xu.me/cr/gitlab/...` |
-| Red Hat Registry | `redhat` | `https://registry.redhat.io/...` | `https://xget.xi-xu.me/cr/redhat/...` |
-| Oracle Container Registry | `oracle` | `https://container-registry.oracle.com/...` | `https://xget.xi-xu.me/cr/oracle/...` |
-| Cloudsmith | `cloudsmith` | `https://docker.cloudsmith.io/...` | `https://xget.xi-xu.me/cr/cloudsmith/...` |
-| DigitalOcean Registry | `digitalocean` | `https://registry.digitalocean.com/...` | `https://xget.xi-xu.me/cr/digitalocean/...` |
-| VMware Registry | `vmware` | `https://projects.registry.vmware.com/...` | `https://xget.xi-xu.me/cr/vmware/...` |
-| Kubernetes Registry | `k8s` | `https://registry.k8s.io/...` | `https://xget.xi-xu.me/cr/k8s/...` |
-| Heroku Registry | `heroku` | `https://registry.heroku.com/...` | `https://xget.xi-xu.me/cr/heroku/...` |
-| SUSE Registry | `suse` | `https://registry.suse.com/...` | `https://xget.xi-xu.me/cr/suse/...` |
-| openSUSE Registry | `opensuse` | `https://registry.opensuse.org/...` | `https://xget.xi-xu.me/cr/opensuse/...` |
-| Gitpod Registry | `gitpod` | `https://registry.gitpod.io/...` | `https://xget.xi-xu.me/cr/gitpod/...` |
+| Container Registry           | Registry Prefix | Original URL Format                         | Accelerated URL Format                      |
+| ---------------------------- | --------------- | ------------------------------------------- | ------------------------------------------- |
+| Docker Hub                   | `docker`        | `https://registry-1.docker.io/...`          | `https://xget.xi-xu.me/cr/docker/...`       |
+| Quay.io                      | `quay`          | `https://quay.io/...`                       | `https://xget.xi-xu.me/cr/quay/...`         |
+| Google Container Registry    | `gcr`           | `https://gcr.io/...`                        | `https://xget.xi-xu.me/cr/gcr/...`          |
+| Microsoft Container Registry | `mcr`           | `https://mcr.microsoft.com/...`             | `https://xget.xi-xu.me/cr/mcr/...`          |
+| Amazon Public ECR            | `ecr`           | `https://public.ecr.aws/...`                | `https://xget.xi-xu.me/cr/ecr/...`          |
+| GitHub Container Registry    | `ghcr`          | `https://ghcr.io/...`                       | `https://xget.xi-xu.me/cr/ghcr/...`         |
+| GitLab Container Registry    | `gitlab`        | `https://registry.gitlab.com/...`           | `https://xget.xi-xu.me/cr/gitlab/...`       |
+| Red Hat Registry             | `redhat`        | `https://registry.redhat.io/...`            | `https://xget.xi-xu.me/cr/redhat/...`       |
+| Oracle Container Registry    | `oracle`        | `https://container-registry.oracle.com/...` | `https://xget.xi-xu.me/cr/oracle/...`       |
+| Cloudsmith                   | `cloudsmith`    | `https://docker.cloudsmith.io/...`          | `https://xget.xi-xu.me/cr/cloudsmith/...`   |
+| DigitalOcean Registry        | `digitalocean`  | `https://registry.digitalocean.com/...`     | `https://xget.xi-xu.me/cr/digitalocean/...` |
+| VMware Registry              | `vmware`        | `https://projects.registry.vmware.com/...`  | `https://xget.xi-xu.me/cr/vmware/...`       |
+| Kubernetes Registry          | `k8s`           | `https://registry.k8s.io/...`               | `https://xget.xi-xu.me/cr/k8s/...`          |
+| Heroku Registry              | `heroku`        | `https://registry.heroku.com/...`           | `https://xget.xi-xu.me/cr/heroku/...`       |
+| SUSE Registry                | `suse`          | `https://registry.suse.com/...`             | `https://xget.xi-xu.me/cr/suse/...`         |
+| openSUSE Registry            | `opensuse`      | `https://registry.opensuse.org/...`         | `https://xget.xi-xu.me/cr/opensuse/...`     |
+| Gitpod Registry              | `gitpod`        | `https://registry.gitpod.io/...`            | `https://xget.xi-xu.me/cr/gitpod/...`       |
 
 ```url
 # Docker Hub original URL (official images)
@@ -749,7 +783,8 @@ https://gcr.io/v2/distroless/base/manifests/latest
 https://xget.xi-xu.me/cr/gcr/v2/distroless/base/manifests/latest
 ```
 
-For use cases, see [Container Image Acceleration](#container-image-acceleration).
+For use cases, see
+[Container Image Acceleration](#container-image-acceleration).
 
 ## 🎯 Use Cases
 
@@ -1030,7 +1065,8 @@ conda config --show
 
 #### Configure in .condarc
 
-The .condarc file can be placed in the user home directory (`~/.condarc`) or project root directory:
+The .condarc file can be placed in the user home directory (`~/.condarc`) or
+project root directory:
 
 ```yaml
 default_channels:
@@ -1062,7 +1098,7 @@ dependencies:
   - scipy>=1.10.0
   - pip
   - pip:
-    - requests>=2.28.0
+      - requests>=2.28.0
 ```
 
 ```bash
@@ -1783,7 +1819,8 @@ task checkFDroidAvailability {
 
 #### Use Xget to Accelerate Jenkins Plugin Download and Update
 
-Supports Jenkins update center and plugin downloads, compatible with configuration methods of domestic mirrors like Tsinghua mirror.
+Supports Jenkins update center and plugin downloads, compatible with
+configuration methods of domestic mirrors like Tsinghua mirror.
 
 #### Jenkins Update Center Configuration
 
@@ -1791,7 +1828,8 @@ Supports Jenkins update center and plugin downloads, compatible with configurati
 
 1. Log in to Jenkins management interface
 2. Go to **Manage Jenkins** → **Plugins** → **Advanced**
-3. In the **Update Site** section, change the URL to `https://xget.xi-xu.me/jenkins/update-center.json`
+3. In the **Update Site** section, change the URL to
+   `https://xget.xi-xu.me/jenkins/update-center.json`
 4. Click **Submit** to save configuration
 
 ##### Method 2: Modify Configuration File
@@ -2111,35 +2149,35 @@ for provider, config in providers.items():
 
 ```javascript
 // OpenAI API acceleration
-import OpenAI from 'openai';
+import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: 'your-api-key',
-  baseURL: 'https://xget.xi-xu.me/ip/openai',  // Use Xget
+  apiKey: "your-api-key",
+  baseURL: "https://xget.xi-xu.me/ip/openai", // Use Xget
 });
 
 async function chatWithGPT() {
   const completion = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: 'Hello!' }],
-    model: 'gpt-4',
+    messages: [{ role: "user", content: "Hello!" }],
+    model: "gpt-4",
   });
 
   console.log(completion.choices[0].message.content);
 }
 
 // Anthropic API acceleration
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const anthropic = new Anthropic({
-  apiKey: 'your-api-key',
-  baseURL: 'https://xget.xi-xu.me/ip/anthropic',  // Use Xget
+  apiKey: "your-api-key",
+  baseURL: "https://xget.xi-xu.me/ip/anthropic", // Use Xget
 });
 
 async function chatWithClaude() {
   const message = await anthropic.messages.create({
-    model: 'claude-3-sonnet-20240229',
+    model: "claude-3-sonnet-20240229",
     max_tokens: 1000,
-    messages: [{ role: 'user', content: 'Hello!' }],
+    messages: [{ role: "user", content: "Hello!" }],
   });
 
   console.log(message.content);
@@ -2224,21 +2262,21 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: xget.xi-xu.me/cr/ghcr/nginxinc/nginx-unprivileged:latest
-        ports:
-        - containerPort: 80
-      - name: redis
-        image: xget.xi-xu.me/cr/ghcr/bitnami/redis:alpine
-        ports:
-        - containerPort: 6379
+        - name: nginx
+          image: xget.xi-xu.me/cr/ghcr/nginxinc/nginx-unprivileged:latest
+          ports:
+            - containerPort: 80
+        - name: redis
+          image: xget.xi-xu.me/cr/ghcr/bitnami/redis:alpine
+          ports:
+            - containerPort: 6379
 ```
 
 #### Docker Compose Configuration
 
 ```yaml
 # docker-compose.yml - Use Xget accelerated images
-version: '3.8'
+version: "3.8"
 services:
   web:
     image: xget.xi-xu.me/cr/ghcr/nginxinc/nginx-unprivileged:latest
@@ -2350,11 +2388,17 @@ sudo systemctl restart containerd
 
 ### Deployment Steps
 
-1. **Fork this repository**: [Fork xixu-me/Xget](https://github.com/xixu-me/Xget/fork)
+1. **Fork this repository**:
+   [Fork xixu-me/Xget](https://github.com/masx200/Xget/fork)
 
 2. **Get Cloudflare credentials**:
-   - Visit [Account API tokens](https://dash.cloudflare.com/?to=/:account/api-tokens) to create and note an API token, using the "Edit Cloudflare Workers" template.
-   - Visit [Workers and Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages) to note the Account ID.
+   - Visit
+     [Account API tokens](https://dash.cloudflare.com/?to=/:account/api-tokens)
+     to create and note an API token, using the "Edit Cloudflare Workers"
+     template.
+   - Visit
+     [Workers and Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
+     to note the Account ID.
 
 3. **Configure GitHub Secrets**:
    - Go to your GitHub repository → Settings → Secrets and variables → Actions
@@ -2364,10 +2408,12 @@ sudo systemctl restart containerd
 
 4. **Trigger deployment**:
    - Pushing code to the `main` branch will automatically trigger deployment
-   - Modifying only documentation files (`.md`), `LICENSE`, `.gitignore`, etc. will not trigger deployment
+   - Modifying only documentation files (`.md`), `LICENSE`, `.gitignore`, etc.
+     will not trigger deployment
    - You can also manually trigger deployment in the GitHub Actions page
 
-5. **Bind custom domain** (optional): Bind your custom domain in the Cloudflare Workers console
+5. **Bind custom domain** (optional): Bind your custom domain in the Cloudflare
+   Workers console
 
 After deployment completes, your Xget service will be available at:
 
@@ -2376,7 +2422,8 @@ After deployment completes, your Xget service will be available at:
 
 ### Environment Variable Configuration
 
-You can set the following environment variables in the Cloudflare Workers console to customize configuration:
+You can set the following environment variables in the Cloudflare Workers
+console to customize configuration:
 
 - `TIMEOUT_SECONDS`: Request timeout (default: 30)
 - `MAX_RETRIES`: Maximum retry count (default: 3)
@@ -2394,23 +2441,26 @@ You can customize configuration by modifying `src/config/index.js`:
 
 ```javascript
 export const CONFIG = {
-  TIMEOUT_SECONDS: 30,       // Request timeout (seconds)
-  MAX_RETRIES: 3,            // Maximum retry count
-  RETRY_DELAY_MS: 1000,      // Retry delay (milliseconds)
-  CACHE_DURATION: 1800,      // Cache duration (1800 seconds = 30 minutes)
+  TIMEOUT_SECONDS: 30, // Request timeout (seconds)
+  MAX_RETRIES: 3, // Maximum retry count
+  RETRY_DELAY_MS: 1000, // Retry delay (milliseconds)
+  CACHE_DURATION: 1800, // Cache duration (1800 seconds = 30 minutes)
   SECURITY: {
-    ALLOWED_METHODS: ["GET", "HEAD"],  // Allowed HTTP methods (Git operations dynamically allow POST)
-    ALLOWED_ORIGINS: ["*"],            // Allowed CORS origins
-    MAX_PATH_LENGTH: 2048,             // Maximum path length (characters)
+    ALLOWED_METHODS: ["GET", "HEAD","POST"], // Allowed HTTP methods (Git operations dynamically allow POST)
+    ALLOWED_ORIGINS: ["*"], // Allowed CORS origins
+    MAX_PATH_LENGTH: 2048, // Maximum path length (characters)
   },
 };
 ```
 
 ### Performance Tuning Recommendations
 
-- **Cache Optimization**: Adjust `CACHE_DURATION` based on usage patterns, reduce appropriately for frequently updated repositories
-- **Timeout Settings**: Increase `TIMEOUT_SECONDS` appropriately for poor network conditions
-- **Retry Strategy**: Increase `MAX_RETRIES` and `RETRY_DELAY_MS` in high-latency environments
+- **Cache Optimization**: Adjust `CACHE_DURATION` based on usage patterns,
+  reduce appropriately for frequently updated repositories
+- **Timeout Settings**: Increase `TIMEOUT_SECONDS` appropriately for poor
+  network conditions
+- **Retry Strategy**: Increase `MAX_RETRIES` and `RETRY_DELAY_MS` in
+  high-latency environments
 
 ### Adding New Platforms
 
@@ -2433,7 +2483,7 @@ export const PLATFORMS = {
 1. **Repository Setup**
 
    ```bash
-   git clone https://github.com/xixu-me/Xget.git
+   git clone https://github.com/masx200/Xget.git
    cd Xget
    npm install
    npx wrangler login  # First time use
@@ -2452,7 +2502,8 @@ export const PLATFORMS = {
 
 ## 🧪 Testing
 
-The repository includes a complete test suite to ensure code quality and functional correctness.
+The repository includes a complete test suite to ensure code quality and
+functional correctness.
 
 ### Complete Testing
 
@@ -2472,8 +2523,10 @@ npm run test:watch
 
 ### Test Coverage
 
-- **Unit Tests**: Core functionality, platform configuration, performance monitoring
-- **Integration Tests**: End-to-end processes, platform integration, Git protocol
+- **Unit Tests**: Core functionality, platform configuration, performance
+  monitoring
+- **Integration Tests**: End-to-end processes, platform integration, Git
+  protocol
 - **Security Tests**: Input validation, security headers, permission control
 - **Performance Tests**: Response time, memory usage, concurrent processing
 
@@ -2481,17 +2534,18 @@ npm run test:watch
 
 ### Common Issues
 
-**Q: No significant speed improvement?**
-A: Check if source files are already cached at CDN edge nodes. Initial access may be slower, subsequent accesses will be significantly faster.
+**Q: No significant speed improvement?** A: Check if source files are already
+cached at CDN edge nodes. Initial access may be slower, subsequent accesses will
+be significantly faster.
 
-**Q: Git operations failing?**
-A: Confirm correct URL format is used and Git client version supports HTTPS proxy.
+**Q: Git operations failing?** A: Confirm correct URL format is used and Git
+client version supports HTTPS proxy.
 
-**Q: Cannot access after deployment?**
-A: Check if Cloudflare Workers domain is correctly bound, confirm `wrangler.toml` configuration is correct.
+**Q: Cannot access after deployment?** A: Check if Cloudflare Workers domain is
+correctly bound, confirm `wrangler.toml` configuration is correct.
 
-**Q: Getting 400 error?**
-A: Check URL path format, confirm platform prefix is correctly used.
+**Q: Getting 400 error?** A: Check URL path format, confirm platform prefix is
+correctly used.
 
 ### Performance Monitoring
 
@@ -2502,7 +2556,8 @@ Performance metrics are returned in response headers:
 
 ### Log Debugging
 
-In development environment, you can view detailed logs through Cloudflare Workers console:
+In development environment, you can view detailed logs through Cloudflare
+Workers console:
 
 ```bash
 npx wrangler dev --log-level debug
@@ -2510,23 +2565,68 @@ npx wrangler dev --log-level debug
 
 ## ⚠️ Disclaimer
 
-- **Legal and Compliant Use**: This repository is intended to accelerate access to legal public resources (such as file downloads, Git operations, AI inference APIs, container image pulls, and package management). Please strictly comply with the laws and regulations of your jurisdiction as well as the terms of service and usage agreements of relevant platforms. Any use beyond legal public resources is the user's own legal responsibility
-- **Non-Affiliation and Self-Responsibility**: Any fork, secondary development, redistribution, or derivative version based on this repository is independently responsible by its maintainer; the authors, maintainers, and contributors of this repository bear no legal or joint liability for their actions or consequences, nor does it constitute employment, cooperation, agency, endorsement, or guarantee
-- **No Warranty and Limitation of Liability**: To the maximum extent permitted by applicable law, this repository is provided "AS IS", and the authors, maintainers, and contributors provide no express or implied warranties (including but not limited to merchantability, fitness for a particular purpose, and non-infringement), nor are they responsible for any direct or indirect losses, data loss, business interruption, or other consequences caused by the use of this repository
-- **User Obligations**: Users should independently evaluate and control usage risks, ensuring their actions and purposes are legal, compliant, and do not infringe third-party rights, and not use this repository for illegal, infringing, or malicious purposes in any form
-- **Third-Party Platforms and Rate Limits**: Please comply with the terms of service, API usage limits, and rate controls of platforms such as GitHub, GitLab, Gitea, Codeberg, SourceForge, Hugging Face, various package management platforms, and container registries to avoid excessive load on source platforms
-- **Intellectual Property and Content Compliance**: Ensure that content accessed or distributed through this repository complies with relevant copyright and licensing requirements; for copyrighted content, please comply with its licensing agreements and terms of use
-- **Data and Security**: This repository adopts a no-log architecture and does not store, record, or analyze user request data. However, internet transmission has inherent risks. It is recommended to perform security scans on downloaded files, especially executable files and scripts, and handle sensitive information carefully
-- **Support and Maintenance**: This repository is an open source, community-driven work. Authors and contributors are not obligated to provide support, fixes, or continuous maintenance; merged external contributions do not constitute commitments or endorsements for their purposes, effects, or results
-- **Representation and Name Use**: Do not imply cooperation, endorsement, or guarantee from authors or contributors in any scenario. External display or promotion involving the repository name, author name, or logos should comply with applicable laws and common name/logo usage norms
-- **Updates and Applicability**: This disclaimer may be updated as the repository or legal environment changes without separate notice; by using, copying, distributing, or modifying this repository, you are deemed to have read and agreed to the latest version of this disclaimer
+- **Legal and Compliant Use**: This repository is intended to accelerate access
+  to legal public resources (such as file downloads, Git operations, AI
+  inference APIs, container image pulls, and package management). Please
+  strictly comply with the laws and regulations of your jurisdiction as well as
+  the terms of service and usage agreements of relevant platforms. Any use
+  beyond legal public resources is the user's own legal responsibility
+- **Non-Affiliation and Self-Responsibility**: Any fork, secondary development,
+  redistribution, or derivative version based on this repository is
+  independently responsible by its maintainer; the authors, maintainers, and
+  contributors of this repository bear no legal or joint liability for their
+  actions or consequences, nor does it constitute employment, cooperation,
+  agency, endorsement, or guarantee
+- **No Warranty and Limitation of Liability**: To the maximum extent permitted
+  by applicable law, this repository is provided "AS IS", and the authors,
+  maintainers, and contributors provide no express or implied warranties
+  (including but not limited to merchantability, fitness for a particular
+  purpose, and non-infringement), nor are they responsible for any direct or
+  indirect losses, data loss, business interruption, or other consequences
+  caused by the use of this repository
+- **User Obligations**: Users should independently evaluate and control usage
+  risks, ensuring their actions and purposes are legal, compliant, and do not
+  infringe third-party rights, and not use this repository for illegal,
+  infringing, or malicious purposes in any form
+- **Third-Party Platforms and Rate Limits**: Please comply with the terms of
+  service, API usage limits, and rate controls of platforms such as GitHub,
+  GitLab, Gitea, Codeberg, SourceForge, Hugging Face, various package management
+  platforms, and container registries to avoid excessive load on source
+  platforms
+- **Intellectual Property and Content Compliance**: Ensure that content accessed
+  or distributed through this repository complies with relevant copyright and
+  licensing requirements; for copyrighted content, please comply with its
+  licensing agreements and terms of use
+- **Data and Security**: This repository adopts a no-log architecture and does
+  not store, record, or analyze user request data. However, internet
+  transmission has inherent risks. It is recommended to perform security scans
+  on downloaded files, especially executable files and scripts, and handle
+  sensitive information carefully
+- **Support and Maintenance**: This repository is an open source,
+  community-driven work. Authors and contributors are not obligated to provide
+  support, fixes, or continuous maintenance; merged external contributions do
+  not constitute commitments or endorsements for their purposes, effects, or
+  results
+- **Representation and Name Use**: Do not imply cooperation, endorsement, or
+  guarantee from authors or contributors in any scenario. External display or
+  promotion involving the repository name, author name, or logos should comply
+  with applicable laws and common name/logo usage norms
+- **Updates and Applicability**: This disclaimer may be updated as the
+  repository or legal environment changes without separate notice; by using,
+  copying, distributing, or modifying this repository, you are deemed to have
+  read and agreed to the latest version of this disclaimer
 
 ## 🤝 Contributing
 
-We welcome all forms of contribution! Please check the [Contributing Guide](CONTRIBUTING.md) to learn how to participate in repository development.
+We welcome all forms of contribution! Please check the
+[Contributing Guide](CONTRIBUTING.md) to learn how to participate in repository
+development.
 
-1. **Report Issues**: Use [issue templates](https://github.com/xixu-me/Xget/issues/new/choose) to report bugs or propose feature requests
-2. **Submit Code**: Fork the repository, create a feature branch, submit a pull request
+1. **Report Issues**: Use
+   [issue templates](https://github.com/masx200/Xget/issues/new/choose) to
+   report bugs or propose feature requests
+2. **Submit Code**: Fork the repository, create a feature branch, submit a pull
+   request
 3. **Improve Documentation**: Fix errors, add examples, improve descriptions
 4. **Testing Feedback**: Test in different environments and provide feedback
 
@@ -2550,7 +2650,8 @@ We welcome all forms of contribution! Please check the [Contributing Guide](CONT
 
 Copyright &copy; Xi Xu.
 
-This repository is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+This repository is licensed under the GPL-3.0 License - see the
+[LICENSE](LICENSE) file for details.
 
 ---
 

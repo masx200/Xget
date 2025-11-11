@@ -29,5 +29,17 @@
     "type-check": "tsc --noEmit"
   },
   "type": "module",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "description": "***[English](README.en.md)***",
+  "main": "eslint.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/masx200/Xget"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

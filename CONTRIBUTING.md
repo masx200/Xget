@@ -1,12 +1,14 @@
 # 贡献指南
 
-感谢您对 Xget 的关注！我们欢迎各种形式的贡献，包括但不限于代码、文档、测试、反馈和建议。
+感谢您对 Xget
+的关注！我们欢迎各种形式的贡献，包括但不限于代码、文档、测试、反馈和建议。
 
 ## 🤝 贡献方式
 
 ### 报告问题
 
-- 使用 [Issue 模板](https://github.com/xixu-me/Xget/issues/new/choose)报告 bug 或提出功能请求
+- 使用 [Issue 模板](https://github.com/masx200/Xget/issues/new/choose)报告 bug
+  或提出功能请求
 - 搜索现有 issues 避免重复报告
 - 提供详细的重现步骤和环境信息
 
@@ -38,7 +40,7 @@
 
 ```bash
 # 克隆存储库
-git clone https://github.com/xixu-me/Xget.git
+git clone https://github.com/masx200/Xget.git
 cd Xget
 
 # 安装依赖
@@ -209,23 +211,25 @@ perf(proxy): optimize request handling performance
 
 ### 常见问题
 
-**Q: 如何添加新平台支持？**
-A: 编辑 `src/config/platforms.js` 文件，添加平台配置，然后更新相关文档和测试。
+**Q: 如何添加新平台支持？** A: 编辑 `src/config/platforms.js`
+文件，添加平台配置，然后更新相关文档和测试。
 
-**Q: 如何测试 Cloudflare Workers 功能？**
-A: 使用 `npm run dev` 启动本地开发服务器，或部署到 Cloudflare Workers 测试环境。
+**Q: 如何测试 Cloudflare Workers 功能？** A: 使用 `npm run dev`
+启动本地开发服务器，或部署到 Cloudflare Workers 测试环境。
 
-**Q: 如何处理跨域问题？**
-A: 检查 CORS 配置，确保允许的源和方法设置正确。
+**Q: 如何处理跨域问题？** A: 检查 CORS 配置，确保允许的源和方法设置正确。
 
 ## 📄 许可证
 
-通过贡献代码，您同意您的贡献将在与存储库相同的 [GPL-3.0 许可证](LICENSE) 下发布。
+通过贡献代码，您同意您的贡献将在与存储库相同的 [GPL-3.0 许可证](LICENSE)
+下发布。
 
 ## 🙏 致谢
 
-感谢所有为 Xget 做出贡献的开发者、测试者和用户。您的支持和反馈是存储库持续改进的动力！
+感谢所有为 Xget
+做出贡献的开发者、测试者和用户。您的支持和反馈是存储库持续改进的动力！
 
 ---
 
-如果您有任何问题或建议，请随时通过 GitHub Issues 或 Discussions 与我们联系。我们期待您的参与！
+如果您有任何问题或建议，请随时通过 GitHub Issues 或 Discussions
+与我们联系。我们期待您的参与！

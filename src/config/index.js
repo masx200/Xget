@@ -1,4 +1,4 @@
-import { PLATFORMS } from './platforms.js';
+import { PLATFORMS } from "./platforms.js";
 
 /**
  * @typedef {Object} SecurityConfig
@@ -29,11 +29,15 @@ export function createConfig(env = {}) {
     RETRY_DELAY_MS: parseInt(env.RETRY_DELAY_MS) || 1000,
     CACHE_DURATION: parseInt(env.CACHE_DURATION) || 1800, // 30 minutes
     SECURITY: {
-      ALLOWED_METHODS: env.ALLOWED_METHODS ? env.ALLOWED_METHODS.split(',') : ['GET', 'HEAD'],
-      ALLOWED_ORIGINS: env.ALLOWED_ORIGINS ? env.ALLOWED_ORIGINS.split(',') : ['*'],
-      MAX_PATH_LENGTH: parseInt(env.MAX_PATH_LENGTH) || 2048
+      ALLOWED_METHODS: env.ALLOWED_METHODS
+        ? env.ALLOWED_METHODS.split(",")
+        : ["GET", "HEAD","POST"],
+      ALLOWED_ORIGINS: env.ALLOWED_ORIGINS
+        ? env.ALLOWED_ORIGINS.split(",")
+        : ["*"],
+      MAX_PATH_LENGTH: parseInt(env.MAX_PATH_LENGTH) || 2048,
     },
-    PLATFORMS
+    PLATFORMS,
   };
 }
 
