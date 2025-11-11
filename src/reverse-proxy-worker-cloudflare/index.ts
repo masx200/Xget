@@ -1,6 +1,6 @@
 import { fetchMiddleWare } from "./fetchMiddleWare.ts";
-//@ts-ignore
-import welcome from "./welcome.html";
+// //@ts-ignore
+// import welcome from "./welcome.html";
 import { Strict_Transport_Security } from "./Strict_Transport_Security.ts";
 //@ts-ignore
 export interface Env {
@@ -32,11 +32,12 @@ export default {
           async (): Promise<Response> => {
             const nextUrl = new URL(request.url);
             if (nextUrl.pathname === "/") {
-              return new Response(welcome, {
-                headers: {
-                  "content-type": "text/html",
-                },
-              });
+               return new Response("ok", { status: 200 });
+              // return new Response(welcome, {
+              //   headers: {
+              //     "content-type": "text/html",
+              //   },
+              // });
             }
 
             //not found

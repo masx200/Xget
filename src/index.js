@@ -1,6 +1,7 @@
 import { CONFIG, createConfig } from "./config/index.js";
 import { transformPath } from "./config/transformPath.js";
-
+import { PLATFORMS } from "./config/platforms.js";
+import reverseProxyWorker from "./reverse-proxy-worker-cloudflare/index.js";
 /**
  * Monitors performance metrics during request processing
  */
@@ -999,6 +1000,22 @@ export default {
    * @returns {Promise<Response>} The response object
    */
   fetch(request, env, ctx) {
+
+     // Check if request matches a platform and route to reverse proxy if so
+        const url = new URL(request.url);
+        const pathname = url.pathname;
+    
+        // Extract platform from path
+        const platformKey = extractPlatformFromPath(pathname);
+    
+        if (platformKey) {
+          const platformUrl = PLATFORMS[platformKey];
+          if (platformUrl) {
+            // Route to reverse-proxy-worker-cloudflare for this platform
+            console.log(`Routing ${platformKey} request to reverse-proxy-worker-cloudflare`);
+            return reverseProxyWorker.fetch(request, env, ctx);
+          }
+        }
     return handleRequest(request, env, ctx);
   },
 };
