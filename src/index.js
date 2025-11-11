@@ -312,6 +312,8 @@ function responseUnauthorized(url) {
   });
 }
 
+import { rewriteGitHubRedirectHeaders } from './rewriteGitHubRedirectHeaders.ts';
+
 /**
  * Handles incoming requests with caching, retries, and security measures
  * @param {Request} request - The incoming request
@@ -806,33 +808,8 @@ async function handleRequest(request, env, ctx) {
     }
 
     // Prepare response headers
-    const headers = new Headers(response.headers);
-
     // Handle redirect Location header rewriting for GitHub domains
-    // If response is a redirect and Location points to GitHub release assets or raw content,
-    // rewrite it to go through our proxy
-    if (response.status >= 300 && response.status < 400) {
-      const location = headers.get('Location');
-      if (location) {
-        // Check if the Location header points to GitHub release assets or raw content
-        if (
-          location.includes('release-assets.githubusercontent.com') ||
-          location.includes('raw.githubusercontent.com')
-        ) {
-          // Rewrite the Location to go through our proxy
-          // Extract the path from the original URL
-          const urlObj = new URL(location);
-          let newPath = urlObj.pathname + urlObj.search + urlObj.hash;
-
-          // Prepend with the appropriate platform prefix
-          if (urlObj.hostname === 'release-assets.githubusercontent.com') {
-            headers.set('Location', `${url.origin}/release-assets.githubusercontent.com${newPath}`);
-          } else if (urlObj.hostname === 'raw.githubusercontent.com') {
-            headers.set('Location', `${url.origin}/raw.githubusercontent.com${newPath}`);
-          }
-        }
-      }
-    }
+    const headers = rewriteGitHubRedirectHeaders(response, url);
 
     if (isGit || isDocker) {
       // For Git/Docker operations, preserve all headers from the upstream response
@@ -938,24 +915,33 @@ export default {
    * @param {ExecutionContext} ctx - Cloudflare Workers execution context
    * @returns {Promise<Response>} The response object
    */
-  fetch(request, env, ctx) {
-    // Check if request matches a platform and route to reverse proxy if so
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const pathname = url.pathname;
+    const response = await ((request, env, ctx) => {
+      // Check if request matches a platform and route to reverse proxy if so
+      const url = new URL(request.url);
+      const pathname = url.pathname;
 
-    // Extract platform from path
-    const platformKey = extractPlatformFromPath(pathname);
+      // Extract platform from path
+      const platformKey = extractPlatformFromPath(pathname);
 
-    if (platformKey) {
-      const platformUrl = PLATFORMS[platformKey];
-      if (platformUrl) {
-        // Route to reverse-proxy-worker-cloudflare for this platform
-        console.log(`Routing ${platformKey} request to reverse-proxy-worker-cloudflare`);
-        return reverseProxyWorker.fetch(request, env, ctx);
+      if (platformKey) {
+        const platformUrl = PLATFORMS[platformKey];
+        if (platformUrl) {
+          // Route to reverse-proxy-worker-cloudflare for this platform
+          console.log(`Routing ${platformKey} request to reverse-proxy-worker-cloudflare`);
+          return reverseProxyWorker.fetch(request, env, ctx);
+        }
       }
-    }
-    // return new Response('Not found', { status: 404 });
-    return handleRequest(request, env, ctx);
+      // return new Response('Not found', { status: 404 });
+      return handleRequest(request, env, ctx);
+    })(request, env, ctx);
+    const headers = rewriteGitHubRedirectHeaders(response, url);
+
+    return new Response(response.body, {
+      status: response.status,
+      headers
+    });
   }
 };
 function extractPlatformFromPath(pathname) {
