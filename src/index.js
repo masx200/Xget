@@ -808,6 +808,32 @@ async function handleRequest(request, env, ctx) {
     // Prepare response headers
     const headers = new Headers(response.headers);
 
+    // Handle redirect Location header rewriting for GitHub domains
+    // If response is a redirect and Location points to GitHub release assets or raw content,
+    // rewrite it to go through our proxy
+    if (response.status >= 300 && response.status < 400) {
+      const location = headers.get('Location');
+      if (location) {
+        // Check if the Location header points to GitHub release assets or raw content
+        if (
+          location.includes('release-assets.githubusercontent.com') ||
+          location.includes('raw.githubusercontent.com')
+        ) {
+          // Rewrite the Location to go through our proxy
+          // Extract the path from the original URL
+          const urlObj = new URL(location);
+          let newPath = urlObj.pathname + urlObj.search + urlObj.hash;
+
+          // Prepend with the appropriate platform prefix
+          if (urlObj.hostname === 'release-assets.githubusercontent.com') {
+            headers.set('Location', `${url.origin}/release-assets.githubusercontent.com${newPath}`);
+          } else if (urlObj.hostname === 'raw.githubusercontent.com') {
+            headers.set('Location', `${url.origin}/raw.githubusercontent.com${newPath}`);
+          }
+        }
+      }
+    }
+
     if (isGit || isDocker) {
       // For Git/Docker operations, preserve all headers from the upstream response
       // These protocols are very sensitive to header changes

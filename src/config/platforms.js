@@ -91,5 +91,9 @@ export const PLATFORMS = {
   "cr-suse": "https://registry.suse.com",
   "cr-opensuse": "https://registry.opensuse.org",
   "cr-gitpod": "https://registry.gitpod.io",
+
+  // GitHub Assets
+  "release-assets.githubusercontent.com": "https://release-assets.githubusercontent.com",
+  "raw.githubusercontent.com": "https://raw.githubusercontent.com",
 };
 
