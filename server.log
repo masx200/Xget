@@ -1,4 +1,0 @@
-{"level":30,"time":1762831578470,"pid":8804,"hostname":"Pc-20230120UMPU","msg":"config>{\"host\":\"192.168.31.193\",\"user\":\"root\",\"password\":\"******\",\"database\":\"cg_manage\",\"port\":3306}"}
-{"level":30,"time":1762831578470,"pid":4140,"hostname":"Pc-20230120UMPU","msg":"config>{\"host\":\"192.168.31.193\",\"user\":\"root\",\"password\":\"******\",\"database\":\"cg_manage\",\"port\":3306}"}
-{"level":30,"time":1762831578470,"pid":8804,"hostname":"Pc-20230120UMPU","msg":"MySQL MCP server running on stdio"}
-{"level":30,"time":1762831578470,"pid":4140,"hostname":"Pc-20230120UMPU","msg":"MySQL MCP server running on stdio"}
