@@ -1,5 +1,7 @@
 import { Env } from "./index.ts";
 import { ReverseProxy } from "./ReverseProxy.ts";
+import { transformPath } from "../config/transformPath.js";
+import { PLATFORMS } from "../config/platforms.js";
 
 export async function fetchMiddleWare(
   request: Request,
@@ -22,51 +24,84 @@ export async function fetchMiddleWare(
   );
 
   const nextUrl = new URL(request.url);
-  const token = env.token;
-  if (!token) {
-    return next();
-  }
-  if (nextUrl.pathname.startsWith("/token/" + token + "/http/")) {
-    let url = new URL(
-      "http://" + nextUrl.pathname.slice(6 + ("/token/" + token).length),
-    );
-    url.search = nextUrl.search;
-    /* 循环处理多重前缀 */
-    while (url.pathname.startsWith("/token/" + token + "/http/")) {
-      url = new URL(
-        "http://" + url.pathname.slice(6 + ("/token/" + token).length),
-      );
-      url.search = nextUrl.search;
-    }
-    // requestHeaders.set("host", url.hostname);
-    url.search = new URL(request.url).search;
-    return await ReverseProxy(request, url);
-  }
-  if (nextUrl.pathname.startsWith("/token/" + token + "/https/")) {
-    let url = new URL(
-      "https://" + nextUrl.pathname.slice(6 + 1 + ("/token/" + token).length),
-    );
-    /* 添加search */
-    url.search = nextUrl.search;
-    /* 循环处理多重前缀 */
-    while (url.pathname.startsWith("/token/" + token + "/https/")) {
-      url = new URL(
-        "https://" + url.pathname.slice(6 + 1 + ("/token/" + token).length),
-      );
-      /* 添加search */
-      url.search = nextUrl.search;
-    }
-    console.log({ url: url.href, method: request.method });
+  const pathname = nextUrl.pathname;
 
-    // requestHeaders.set("host", url.hostname);
-    // url.protocol = "https";
-    // url.hostname = hostname;
-    // url.port = String(443);
-    //   url.pathname = url.pathname; //.replace(/^\//, '');
-    // return NextResponse.rewrite(url, {
-    //   headers: requestHeaders,
-    // });
-    return await ReverseProxy(request, url);
+  // Handle platform-based proxy requests using transformPath
+  // Check if the path starts with a known platform prefix
+  const platformKey = extractPlatformFromPath(pathname);
+
+  if (platformKey) {
+    // Extract the platform prefix from the path
+    const prefix = `/${platformKey.replace(/-/g, "/")}/`;
+    const originalPath = pathname.replace(
+      new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`),
+      "/"
+    ) || "/";
+
+    // Get the base URL for this platform
+    const baseUrl = PLATFORMS[platformKey];
+    if (!baseUrl) {
+      return next();
+    }
+
+    // Use transformPath to transform the original path
+    const transformedPath = transformPath(originalPath, platformKey);
+
+    // Construct the final URL
+    const finalUrl = new URL(transformedPath, baseUrl);
+    finalUrl.search = nextUrl.search;
+
+    console.log({
+      url: finalUrl.href,
+      method: request.method,
+      platformKey,
+      originalPath,
+      transformedPath,
+      baseUrl
+    });
+
+    return await ReverseProxy(request, finalUrl);
   }
+
   return next();
 }
+
+/**
+ * Extract platform key from URL path
+ * @param pathname The URL pathname to extract platform from
+ * @returns The platform key or null if not found
+ */
+function extractPlatformFromPath(pathname: string): string | null {
+  // Split the path and check if the first segment matches a platform key
+  const segments = pathname.split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return null;
+  }
+
+  // Check for exact match first
+  const firstSegment = segments[0];
+  if (PLATFORMS[firstSegment]) {
+    return firstSegment;
+  }
+
+  // Check for compound platform keys (like "cr-docker", "ip-openai", etc.)
+  // Check up to 3 segments deep for compound keys
+  for (let i = 2; i <= Math.min(3, segments.length); i++) {
+    const possibleKey = segments.slice(0, i).join('-');
+    if (PLATFORMS[possibleKey]) {
+      return possibleKey;
+    }
+  }
+
+  // Check for path-style platform keys (like "cr/docker" -> "cr-docker")
+  for (let i = 1; i <= Math.min(2, segments.length); i++) {
+    const possibleKey = segments.slice(0, i).join('/');
+    if (PLATFORMS[possibleKey]) {
+      return possibleKey;
+    }
+  }
+
+  return null;
+}
+
