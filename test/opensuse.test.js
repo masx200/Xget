@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { transformPath } from "../src/config/transformPath.js";
-import { PLATFORMS } from "../src/config/PLATFORMS.1.js";
+import { PLATFORMS } from "../src/config/platforms.js";
 
 describe("openSUSE Platform Configuration", () => {
   it("should have openSUSE platform configured", () => {
