@@ -104,6 +104,8 @@ export const PLATFORMS = {
   'dns.quad9.net': 'https://dns.quad9.net',
   'dns.nextdns.io': 'https://dns.nextdns.io',
   'dns.adguard.com': 'https://dns.adguard.com',
+  'unfiltered.adguard.com': 'https://unfiltered.adguard.com',
+  'family.adguard.com': 'https://family.adguard.com',
   'doh.opendns.com': 'https://doh.opendns.com',
   'dns.alidns.com': 'https://dns.alidns.com',
   'doh.pub': 'https://doh.pub',
