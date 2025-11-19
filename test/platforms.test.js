@@ -539,4 +539,163 @@ describe("Platform Configuration", () => {
       });
     });
   });
+
+  describe("DNS over HTTPS (DoH) Providers Support", () => {
+    it("should have all major DoH providers defined", () => {
+      const dohProviders = [
+        "doh-cloudflare",
+        "doh-google",
+        "doh-quad9",
+        "doh-nextdns",
+        "doh-adguard",
+        "doh-opendns",
+        "doh-alidns",
+        "doh-dohpub",
+        "doh-360",
+        "doh-huawei",
+        "doh-mullvad",
+        "doh-controld",
+      ];
+
+      dohProviders.forEach((provider) => {
+        expect(PLATFORMS).toHaveProperty(provider);
+        expect(PLATFORMS[provider]).toBeDefined();
+        expect(typeof PLATFORMS[provider]).toBe("string");
+        expect(PLATFORMS[provider]).toMatch(/^https:\/\/.+/);
+      });
+    });
+
+    it("should have correct DoH provider base URLs", () => {
+      const dohProviderUrls = {
+        "doh-cloudflare": "https://cloudflare-dns.com",
+        "doh-google": "https://dns.google",
+        "doh-quad9": "https://dns.quad9.net",
+        "doh-nextdns": "https://dns.nextdns.io",
+        "doh-adguard": "https://dns.adguard.com",
+        "doh-opendns": "https://doh.opendns.com",
+        "doh-alidns": "https://dns.alidns.com",
+        "doh-dohpub": "https://doh.pub",
+        "doh-360": "https://doh.360.cn",
+        "doh-huawei": "https://dns.huawei.com",
+        "doh-mullvad": "https://dns.mullvad.net",
+        "doh-controld": "https://dns.controld.com",
+      };
+
+      Object.entries(dohProviderUrls).forEach(([provider, expectedUrl]) => {
+        expect(PLATFORMS[provider]).toBe(expectedUrl);
+      });
+    });
+
+    it("should transform DoH provider paths correctly", () => {
+      const testCases = [
+        {
+          provider: "doh-cloudflare",
+          inputPath: "/doh/cloudflare/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-google",
+          inputPath: "/doh/google/resolve",
+          expectedPath: "/resolve",
+        },
+        {
+          provider: "doh-quad9",
+          inputPath: "/doh/quad9/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-nextdns",
+          inputPath: "/doh/nextdns/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-adguard",
+          inputPath: "/doh/adguard/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-opendns",
+          inputPath: "/doh/opendns/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-alidns",
+          inputPath: "/doh/alidns/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-dohpub",
+          inputPath: "/doh/dohpub/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-360",
+          inputPath: "/doh/360/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-huawei",
+          inputPath: "/doh/huawei/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-mullvad",
+          inputPath: "/doh/mullvad/dns-query",
+          expectedPath: "/dns-query",
+        },
+        {
+          provider: "doh-controld",
+          inputPath: "/doh/controld/dns-query",
+          expectedPath: "/dns-query",
+        },
+      ];
+
+      testCases.forEach(({ provider, inputPath, expectedPath }) => {
+        const transformedPath = transformPath(inputPath, provider);
+        expect(transformedPath).toBe(expectedPath);
+      });
+    });
+
+    it("should construct valid URLs for DoH providers", () => {
+      const dohProviders = [
+        "doh-cloudflare",
+        "doh-google",
+        "doh-quad9",
+        "doh-nextdns",
+        "doh-adguard",
+        "doh-opendns",
+        "doh-alidns",
+        "doh-dohpub",
+        "doh-360",
+        "doh-huawei",
+        "doh-mullvad",
+        "doh-controld",
+      ];
+
+      dohProviders.forEach((provider) => {
+        const testPath = `/doh/${provider.replace("doh-", "")}/dns-query`;
+        const transformedPath = transformPath(testPath, provider);
+        const baseUrl = PLATFORMS[provider];
+        const fullUrl = baseUrl + transformedPath;
+
+        expect(() => new URL(fullUrl)).not.toThrow();
+      });
+    });
+
+    it("should handle DoH provider edge cases", () => {
+      // Test with empty paths
+      expect(() => transformPath("", "doh-cloudflare")).not.toThrow();
+
+      // Test with paths without DoH prefix
+      expect(transformPath("/some/random/path", "doh-google")).toBe("/some/random/path");
+
+      // Test with query parameters
+      expect(transformPath("/doh/cloudflare/dns-query?name=example.com&type=A", "doh-cloudflare"))
+        .toBe("/dns-query?name=example.com&type=A");
+
+      // Test with fragments
+      expect(transformPath("/doh/google/resolve#section", "doh-google"))
+        .toBe("/resolve#section");
+    });
+  });
 });
