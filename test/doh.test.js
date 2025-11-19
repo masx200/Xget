@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { SELF } from "cloudflare:test";
 import { transformPath } from "../src/config/transformPath.js";
 import { PLATFORMS } from "../src/config/platforms.js";
 
@@ -6,42 +7,42 @@ describe("DNS over HTTPS (DoH) Configuration", () => {
   describe("DoH Provider Definitions", () => {
     it("should have all expected DoH providers configured", () => {
       const expectedDoHProviders = [
-        "doh-cloudflare",
-        "doh-google",
-        "doh-quad9",
-        "doh-nextdns",
-        "doh-adguard",
-        "doh-opendns",
-        "doh-alidns",
-        "doh-dohpub",
-        "doh-360",
-        "doh-huawei",
-        "doh-mullvad",
-        "doh-controld",
+        "cloudflare-dns.com",
+        "dns.google",
+        "dns.quad9.net",
+        "dns.nextdns.io",
+        "dns.adguard.com",
+        "doh.opendns.com",
+        "dns.alidns.com",
+        "doh.pub",
+        "doh.360.cn",
+        "dns.huawei.com",
+        "dns.mullvad.net",
+        "dns.controld.com",
       ];
 
       expectedDoHProviders.forEach((provider) => {
         expect(PLATFORMS).toHaveProperty(provider);
         expect(PLATFORMS[provider]).toBeDefined();
         expect(typeof PLATFORMS[provider]).toBe("string");
-        expect(PLATFORMS[provider]).toMatch(/^https:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+        expect(PLATFORMS[provider]).toMatch(/^https:\/\/[a-zA-Z0-9.-]+\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=%]*$/);
       });
     });
 
     it("should have correct DoH provider URLs", () => {
       const expectedUrls = {
-        "doh-cloudflare": "https://cloudflare-dns.com",
-        "doh-google": "https://dns.google",
-        "doh-quad9": "https://dns.quad9.net",
-        "doh-nextdns": "https://dns.nextdns.io",
-        "doh-adguard": "https://dns.adguard.com",
-        "doh-opendns": "https://doh.opendns.com",
-        "doh-alidns": "https://dns.alidns.com",
-        "doh-dohpub": "https://doh.pub",
-        "doh-360": "https://doh.360.cn",
-        "doh-huawei": "https://dns.huawei.com",
-        "doh-mullvad": "https://dns.mullvad.net",
-        "doh-controld": "https://dns.controld.com",
+        "cloudflare-dns.com": "https://cloudflare-dns.com/dns-query",
+        "dns.google": "https://dns.google/resolve",
+        "dns.quad9.net": "https://dns.quad9.net/dns-query",
+        "dns.nextdns.io": "https://dns.nextdns.io/dns-query",
+        "dns.adguard.com": "https://dns.adguard.com/dns-query",
+        "doh.opendns.com": "https://doh.opendns.com/dns-query",
+        "dns.alidns.com": "https://dns.alidns.com/dns-query",
+        "doh.pub": "https://doh.pub/dns-query",
+        "doh.360.cn": "https://doh.360.cn/dns-query",
+        "dns.huawei.com": "https://dns.huawei.com/dns-query",
+        "dns.mullvad.net": "https://dns.mullvad.net/dns-query",
+        "dns.controld.com": "https://dns.controld.com/dns-query",
       };
 
       Object.entries(expectedUrls).forEach(([provider, expectedUrl]) => {
@@ -51,7 +52,12 @@ describe("DNS over HTTPS (DoH) Configuration", () => {
 
     it("should have unique DoH provider URLs", () => {
       const dohUrls = Object.entries(PLATFORMS)
-        .filter(([key, _]) => key.startsWith("doh-"))
+        .filter(([key, _]) =>
+          key.includes("dns") ||
+          key.includes("doh") ||
+          key.endsWith(".pub") ||
+          key.endsWith(".360.cn")
+        )
         .map(([_, url]) => url);
       const uniqueUrls = [...new Set(dohUrls)];
       expect(dohUrls.length).toBe(uniqueUrls.length);

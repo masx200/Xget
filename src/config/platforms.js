@@ -96,16 +96,16 @@ export const PLATFORMS = {
   'raw.githubusercontent.com': 'https://raw.githubusercontent.com',
 
   // DNS over HTTPS (DoH) providers
-  'doh-cloudflare': 'https://cloudflare-dns.com',
-  'doh-google': 'https://dns.google',
-  'doh-quad9': 'https://dns.quad9.net',
-  'doh-nextdns': 'https://dns.nextdns.io',
-  'doh-adguard': 'https://dns.adguard.com',
-  'doh-opendns': 'https://doh.opendns.com',
-  'doh-alidns': 'https://dns.alidns.com',
-  'doh-dohpub': 'https://doh.pub',
-  'doh-360': 'https://doh.360.cn',
-  'doh-huawei': 'https://dns.huawei.com',
-  'doh-mullvad': 'https://dns.mullvad.net',
-  'doh-controld': 'https://dns.controld.com'
+  'cloudflare-dns.com': 'https://cloudflare-dns.com',
+  'dns.google': 'https://dns.google',
+  'dns.quad9.net': 'https://dns.quad9.net',
+  'dns.nextdns.io': 'https://dns.nextdns.io',
+  'dns.adguard.com': 'https://dns.adguard.com',
+  'doh.opendns.com': 'https://doh.opendns.com',
+  'dns.alidns.com': 'https://dns.alidns.com',
+  'doh.pub': 'https://doh.pub',
+  'doh.360.cn': 'https://doh.360.cn',
+  'dns.huawei.com': 'https://dns.huawei.com',
+  'dns.mullvad.net': 'https://dns.mullvad.net',
+  'dns.controld.com': 'https://dns.controld.com'
 };
