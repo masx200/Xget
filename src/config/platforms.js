@@ -97,6 +97,9 @@ export const PLATFORMS = {
 
   // DNS over HTTPS (DoH) providers
   'cloudflare-dns.com': 'https://cloudflare-dns.com',
+  'security.cloudflare-dns.com': 'https://security.cloudflare-dns.com',
+  'family.cloudflare-dns.com': 'https://family.cloudflare-dns.com',
+  'one.one.one.one': 'https://one.one.one.one',
   'dns.google': 'https://dns.google',
   'dns.quad9.net': 'https://dns.quad9.net',
   'dns.nextdns.io': 'https://dns.nextdns.io',
