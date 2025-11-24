@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: npm install --save-dev wrangler@4
       - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3
